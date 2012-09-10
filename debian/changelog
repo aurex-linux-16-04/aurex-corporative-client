@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.2) precise; urgency=low
+
+  * added missing install file
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 11 Sep 2012 01:04:27 +0200
+
 aurex-clickcontrol-client (0.1) unstable; urgency=low
 
   * Initial release.
