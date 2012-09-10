@@ -27,8 +27,8 @@ case "$1" in
 		;;
 	update)
 		MOUNT_CFG_DIR="/etc/aurex-cc/mounts.d/"
-		TOP_FILE=/usr/share/aurex-cc-mount-settings/pam_mount.conf.xml.top
-		BOTTOM_FILE=/usr/share/aurex-cc-mount-settings/pam_mount.conf.xml.bottom
+		TOP_FILE=/usr/share/aurex-cc-mount/pam_mount.conf.xml.top
+		BOTTOM_FILE=/usr/share/aurex-cc-mount/pam_mount.conf.xml.bottom
 		TMP_FILE1="$(tempfile)"
 		TMP_FILE2="$(tempfile)"
 
