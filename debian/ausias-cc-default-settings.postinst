@@ -2,8 +2,10 @@
 
 case "$1" in
     configure)
-	aurex-cc-mount-settings update || true
-	aurex-cc-auth-settings update || true
+	# generate /var/lib/ausias-cc-default-settings/ldap-auth.cfg, just a cp at this moment ...
+	cp /usr/share/ausias-cc-default-settings/ldap-auth.cfg /var/lib/ausias-cc-default-settings/ldap-auth.cfg
+	aurex-transmute --module=ausias-cc transmute || true
+	/usr/share/aurex-cc-auth/aurex-ldap-auth-config configure || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
     	;;

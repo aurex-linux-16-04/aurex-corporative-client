@@ -1,2 +1,3 @@
-/usr/share/ausias-cc-default-settings/mounts	/etc/aurex-cc/mounts.d/ausias-cc-default-settings.mounts
-/usr/share/ausias-cc-default-settings/hosts	/etc/aurex-cc/hosts.d/ausias-cc-default-settings.hosts
+/usr/share/ausias-cc-default-settings/mounts		/etc/aurex-cc/mounts.d/ausias-cc-default-settings.mounts
+/usr/share/ausias-cc-default-settings/hosts		/etc/aurex-cc/hosts.d/ausias-cc-default-settings.hosts
+/var/lib/ausias-cc-default-settings/ldap-auth.cfg	/usr/share/aurex-transmute/ausias-cc/preseed/ldap-auth.cfg

@@ -7,7 +7,7 @@ Standards-Version: 3.9.3
 
 Package: aurex-cc-auth
 Architecture: all
-Depends: ${misc:Depends}, aurex-transmute, ldap-auth-client, libpam-ldap, nscd
+Depends: ${misc:Depends}, aurex-transmute, ldap-auth-client, libpam-ldap, ldap-auth-config, nscd
 Description: ClickControl compatible pam and nsswitch configuration 
  This package will install all required packages for an ldap client.
  It uses the auth-client-config and pam-auth-update tools to modify
