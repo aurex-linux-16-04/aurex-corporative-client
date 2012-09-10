@@ -5,7 +5,7 @@ Maintainer: Luis Antonio Garcia Gisbert <luisgg@gmail.com>
 Build-Depends: debhelper (>= 7.0), gettext
 Standards-Version: 3.9.3
 
-Package: aurex-cc-auth-settings
+Package: aurex-cc-auth
 Architecture: all
 Depends: ${misc:Depends}, aurex-transmute, ldap-auth-client, libpam-ldap, nscd
 Description: ClickControl compatible pam and nsswitch configuration 
@@ -15,7 +15,7 @@ Description: ClickControl compatible pam and nsswitch configuration
  The default configuration allows an aurex desktop (and may be a plain
  ubuntu desktop too ;-) ) to validate login against a ClickControl server.
 
-Package: aurex-cc-mount-settings
+Package: aurex-cc-mount
 Architecture: all
 Depends: ${misc:Depends}, aurex-transmute, aurex-fs-utils, libpam-mount
 Description: Clickcontrol compatible libpam-mount settings
@@ -34,7 +34,7 @@ Description: Default values for network clients in CIPFP Ausias March intranet
 
 Package: ausias-cc-client
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth-settings, aurex-cc-mount-settings
+Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, ausias-cc-default-settings
 Description: Metapackage for CIPFP Ausias March intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
