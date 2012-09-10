@@ -19,9 +19,7 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-	aurex-cc-mount-settings clean || true
-	aurex-transmute --module=cc-mount untransmute || true
-	pam-auth-update --package --remove libpam-mount
+	aurex-cc-mount-settings remove || true
     ;;
 
     failed-upgrade)

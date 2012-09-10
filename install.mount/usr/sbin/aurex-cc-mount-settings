@@ -21,9 +21,9 @@
 
 
 case "$1" in
-	clean)
+	remove)
 		rm -f /var/lib/aurex-cc-mount-settings/pam_mount.conf.xml /etc/aurex-fs-utils/umount.d/aurex-cc-mount-settings.conf
-
+		aurex-transmute --module=cc-mount untransmute || true
 		;;
 	update)
 		MOUNT_CFG_DIR="/etc/aurex-cc/mounts.d/"
@@ -54,9 +54,11 @@ EOF
 		cat "$TMP_FILE1" > /var/lib/aurex-cc-mount-settings/pam_mount.conf.xml
 		sort -u "$TMP_FILE2" > /etc/aurex-fs-utils/umount.d/aurex-cc-mount-settings.conf
 		rm -f "$TMP_FILE1" "$TMP_FILE2"
+		aurex-transmute --module=cc-mount transmute || true
+
 		;;
 	*)
-	        echo "Usage: $(basename "$0") {update|clean}" >&2
+	        echo "Usage: $(basename "$0") {update|remove}" >&2
 		exit 1
 	;;
 esac

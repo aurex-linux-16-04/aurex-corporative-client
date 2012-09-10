@@ -2,6 +2,7 @@
 
 case "$1" in
     configure)
+	aurex-cc-mount-settings update || true
 	aurex-cc-auth-settings update || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)

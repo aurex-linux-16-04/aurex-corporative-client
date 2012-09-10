@@ -19,6 +19,7 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
+	aurex-cc-mount-settings remove || true
 	aurex-cc-auth-settings remove || true
     ;;
 

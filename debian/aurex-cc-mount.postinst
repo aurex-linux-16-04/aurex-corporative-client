@@ -3,8 +3,6 @@
 case "$1" in
     configure)
 	aurex-cc-mount-settings update || true
-	aurex-transmute --module=cc-mount transmute || true
-	pam-auth-update --package --force || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
     	;;
