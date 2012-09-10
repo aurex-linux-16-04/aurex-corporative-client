@@ -1,0 +1,40 @@
+Source: aurex-clickcontrol-client
+Section: admin
+Priority: optional
+Maintainer: Luis Antonio Garcia Gisbert <luisgg@gmail.com>
+Build-Depends: debhelper (>= 7.0), gettext
+Standards-Version: 3.9.3
+
+Package: aurex-cc-auth-settings
+Architecture: all
+Depends: ${misc:Depends}, aurex-transmute, ldap-auth-client, libpam-ldap, nscd
+Description: ClickControl compatible pam and nsswitch configuration 
+ This package will install all required packages for an ldap client.
+ It uses the auth-client-config and pam-auth-update tools to modify
+ all necessary pam and nsswitch configuration files.
+ The default configuration allows an aurex desktop (and may be a plain
+ ubuntu desktop too ;-) ) to validate login against a ClickControl server.
+
+Package: aurex-cc-mount-settings
+Architecture: all
+Depends: ${misc:Depends}, aurex-transmute, aurex-fs-utils, libpam-mount
+Description: Clickcontrol compatible libpam-mount settings
+ Utility to simplify libpam-mount configuration. Default settings are
+ compatible with ClickControl samba server shares configuration.
+
+Package: ausias-cc-default-settings
+Architecture: all
+Depends: ${misc:Depends}
+Provides: aurex-cc-default-settings
+Replaces: aurex-cc-default-settings
+Conflicts: aurex-cc-default-settings
+Description: Default values for network clients in CIPFP Ausias March intranet
+ This package installs the apropiate configuration for network sessions
+ in the actual CIPFP Ausias March intranet
+
+Package: ausias-cc-client
+Architecture: all
+Depends: ${misc:Depends}, aurex-cc-auth-settings, aurex-cc-mount-settings
+Description: Metapackage for CIPFP Ausias March intranet clients
+ This metapackage installs all required packages and configuration
+ settings for clients in CIPFP Ausias March intranet environment.

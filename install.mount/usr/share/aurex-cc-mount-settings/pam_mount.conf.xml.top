@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pam_mount>
+
+<msg-authpw>ClickControl Password: </msg-authpw>
+
+<logout wait="300" hup="yes" term="yes" kill="yes" />
+
+<debug enable="0" />
+
+<mkmountpoint enable="1"  remove="true"/>
+
+<fsckloop device="/dev/loop7" />
+
+<lsof>/usr/sbin/lsof %(MNTPT)</lsof>
+
+<fsck>/sbin/fsck -p %(FSCKTARGET)</fsck>
+
+<losetup>/sbin/losetup -p0 "%(before=\"-e\" CIPHER)" "%(before=\"-k\" KEYBITS)" %(FSCKLOOP) %(VOLUME)</losetup>
+
+<unlosetup>/sbin/losetup -d %(FSCKLOOP)</unlosetup>
+
+<cifsmount>/bin/mount -t cifs //%(SERVER)/%(VOLUME) %(MNTPT) -o "username=%(USER)%(before=\",\" OPTIONS)"</cifsmount>
+
+<smbmount>/usr/bin/smbmount //%(SERVER)/%(VOLUME) %(MNTPT) -o "username=%(USER)%(before=\",\" OPTIONS)"</smbmount>
+
+<ncpmount>/usr/bin/ncpmount %(SERVER)/%(USER) %(MNTPT) -o "pass-fd=0,volume=%(VOLUME)%(before=\",\" OPTIONS)"</ncpmount>
+
+<smbumount>/usr/bin/smbumount %(MNTPT)</smbumount>
+
+<ncpumount>/usr/bin/ncpumount %(MNTPT)</ncpumount>
+
+<umount>/bin/umount %(MNTPT)</umount>
+
+<cryptmount>/bin/mount -t crypt "%(before=\"-o\" OPTIONS)" %(VOLUME) %(MNTPT)</cryptmount>
+
+<nfsmount>/bin/mount %(SERVER):%(VOLUME) %(MNTPT) "%(before=\"-o\" OPTIONS)"</nfsmount>
+
+
+
+<mntcheck>/bin/mount</mntcheck>
+
+<pmvarrun>/usr/sbin/pmvarrun -u %(USER) -d -o %(OPERATION)</pmvarrun>
+
