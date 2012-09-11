@@ -24,7 +24,7 @@ Description: Clickcontrol compatible libpam-mount settings
 
 Package: ausias-cc-default-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount
+Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota
 Description: Metapackage for CIPFP Ausias March intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.

@@ -25,7 +25,7 @@ case "$1" in
 	remove)
 		aurex-transmute --module=cc-auth untransmute || true
 		auth-client-config -t nss -p aurex_cc_auth -r || true
-		pam-auth-update --package --remove aurex-cc-groups aurex-cc-mkhomedir ldap libpam-mount || true
+		pam-auth-update --package --remove aurex-cc-groups aurex-cc-mkhomedir ldap libpam-mount aurex-pam-quota || true
 		sed -i -e "/$START_AUTH/,/$END_AUTH/d" /etc/hosts
 		[ ! -x /etc/init.d/nscd ] || invoke-rc.d nscd restart || true
 		;;
