@@ -54,6 +54,12 @@ EOF
 		cat "$TMP_FILE1" > /var/lib/aurex-cc-mount-settings/pam_mount.conf.xml
 		sort -u "$TMP_FILE2" > /etc/aurex-fs-utils/umount.d/aurex-cc-mount-settings.conf
 		rm -f "$TMP_FILE1" "$TMP_FILE2"
+		MOUNTP_CFG_DIR="/etc/aurex-cc/mountpoints.d/"
+		ls -1 "$MOUNTP_CFG_DIR" |while read l; do
+			sed -ne "\%^/%{s%[[:blank:]]*$%%;p}" "/etc/aurex-cc/mountpoints.d/$l" |while read L; do
+				mkdir -p "$L"
+			done
+		done
 		aurex-transmute --module=cc-mount transmute || true
 
 		;;

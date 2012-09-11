@@ -1,2 +1,3 @@
 /var/lib/aurex-cc-mount-settings
 /etc/aurex-cc/mounts.d
+/etc/aurex-cc/mountpoints.d

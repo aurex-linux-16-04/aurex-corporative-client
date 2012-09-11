@@ -27,18 +27,22 @@ case "$1" in
 		auth-client-config -t nss -p aurex_cc_auth -r || true
 		pam-auth-update --package --remove aurex-cc-groups aurex-cc-mkhomedir ldap libpam-mount || true
 		sed -i -e "/$START_AUTH/,/$END_AUTH/d" /etc/hosts
+		[ ! -x /etc/init.d/nscd ] || invoke-rc.d nscd restart || true
 		;;
 	update)
 		aurex-transmute --module=cc-auth transmute || true
 		auth-client-config -t nss -p aurex_cc_auth || true
 		pam-auth-update --package --force || true
+		[ ! -x /etc/init.d/nscd ] || invoke-rc.d nscd restart || true
 		HOST_CFG_DIR="/etc/aurex-cc/hosts.d/"
 		
 		TMP_FILE="$(tempfile)"
 		sed -ne "1,/$START_AUTH/{/$START_AUTH/d;p}" /etc/hosts > "$TMP_FILE"
+		echo "$START_AUTH" >> "$TMP_FILE"
 		ls -1 "$HOST_CFG_DIR" |while read l; do
                         cat "$HOST_CFG_DIR/$l" >> "$TMP_FILE"
 		done
+		echo "$END_AUTH" >> "$TMP_FILE"
 		sed -ne "/$END_AUTH/,\${/$END_AUTH/d;p}" /etc/hosts >> "$TMP_FILE"
 		cat "$TMP_FILE" > /etc/hosts
 		rm -f "$TMP_FILE"
