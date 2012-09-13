@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.6) precise; urgency=low
+
+  * Add vboxusers to pam-group list
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 13 Sep 2012 19:55:21 +0200
+
 aurex-clickcontrol-client (0.5) precise; urgency=low
 
   * Add aurex-pam-quota as depends of ausias-cc-default-settings
