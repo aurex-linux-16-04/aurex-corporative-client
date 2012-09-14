@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.7) precise; urgency=low
+
+  * Add netadmins sudo configuration
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 14 Sep 2012 02:35:26 +0200
+
 aurex-clickcontrol-client (0.6) precise; urgency=low
 
   * Add vboxusers to pam-group list

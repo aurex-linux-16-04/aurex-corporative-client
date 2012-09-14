@@ -1,0 +1,3 @@
+# Allow members of group netadmins to execute any command
+%netadmins   ALL=(ALL:ALL) ALL
+

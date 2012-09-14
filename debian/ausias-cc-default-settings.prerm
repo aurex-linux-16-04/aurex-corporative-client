@@ -19,6 +19,7 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
+	rm -f /etc/sudoers.d/20_netadmins
 	rm /var/lib/ausias-cc-default-settings/ldap-auth.cfg
         aurex-transmute --module=ausias-cc untransmute || true
 
