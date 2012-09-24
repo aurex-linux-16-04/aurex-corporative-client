@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.8) precise; urgency=low
+
+  * Added  aurex-atspi-fix as depends
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 24 Sep 2012 17:56:21 +0200
+
 aurex-clickcontrol-client (0.7) precise; urgency=low
 
   * Add netadmins sudo configuration
