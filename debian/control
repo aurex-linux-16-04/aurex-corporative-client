@@ -28,3 +28,11 @@ Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota
 Description: Metapackage for CIPFP Ausias March intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
+
+Package: ausias-papercut-client
+Architecture: all
+Depends: ${misc:Depends}, smbfs, ausias-cc-default-settings, openjdk-6-jre|sun-java6-bin
+Description: CIPFP Ausias March intranet custom papercut client installer
+ This package installs and configures papercut client to print in
+ CIPFP Ausias March intranet environment.
+

@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.9) precise; urgency=low
+
+  * New binary ausias-papercut-client
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 25 Sep 2012 12:22:51 +0200
+
 aurex-clickcontrol-client (0.8) precise; urgency=low
 
   * Added  aurex-atspi-fix as depends

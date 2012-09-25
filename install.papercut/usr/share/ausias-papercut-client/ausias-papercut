@@ -1,0 +1,35 @@
+#!/bin/sh
+PCCLIENT_SHARE="//fsserver/pcclient"
+TMP_DIR="$(mktemp)"
+CLIENT_DIR="$TMP_DIR/linux"
+TARGET_DIR="/clickcontrol"
+
+usage(){
+	echo "Usage: $(basename "$0") [install|remove]"
+}
+
+case "$1" in 
+	install)
+		# try to mount pcclient resource
+		rc=0
+		smbmount "$PCCLIENT_SHARE" "$TMP_DIR" -o guest || rc=$?
+		# do some additional tests
+		if [ $rc -eq 0 ] && [ -d "$CLIENT_DIR" ] && [ -e "$CLIENT_DIR/pc-client-linux.sh" ] && [ -d "$CLIENT_DIR/lib-ext" ] && [ -d "$CLIENT_DIR/lib" ] ; then
+			mkdir -p "$TARGET_DIR"
+			# bypass broken link ...
+			cp -r $CLIENT_DIR/* $TARGET_DIR || true
+			sed -e "s%_@_TARGET_DIR_@_%$TARGET_DIR%g" /usr/share/ausias-papercut-client/clickcontrol.sh.in > /etc/profile.d/clickcontrol.sh
+			chmod 755 "$CLIENT_DIR/pc-client-linux.sh" /etc/profile.d/clickcontrol.sh
+			umount "$TMP_DIR" || true
+			rmdir "$TMP_DIR" || true
+			echo "Papercut client successfully installed"
+		else
+			echo "Error accessing $PCCLIENT_SHARE as guest" >&2
+			echo "Papercut client NOT INSTALLED" >&2
+		fi
+		;;
+	remove)
+		rm -f /etc/profile.d/clickcontrol.sh
+		rm -fr "$TARGET_DIR"
+		;;
+exit 0
