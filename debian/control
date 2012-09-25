@@ -22,6 +22,12 @@ Description: Clickcontrol compatible libpam-mount settings
  Utility to simplify libpam-mount configuration. Default settings are
  compatible with ClickControl samba server shares configuration.
 
+Package: aurex-lpadmin
+Architecture: all
+Depends: ${misc:Depends}, cups-client
+Description: Aurex printer configuration utility
+ automatic printer configuration manager
+
 Package: ausias-cc-default-settings
 Architecture: all
 Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota
@@ -31,7 +37,7 @@ Description: Metapackage for CIPFP Ausias March intranet clients
 
 Package: ausias-papercut-client
 Architecture: all
-Depends: ${misc:Depends}, smbfs, ausias-cc-default-settings, openjdk-6-jre|sun-java6-bin
+Depends: ${misc:Depends}, smbfs, ausias-cc-default-settings, openjdk-6-jre|sun-java6-bin, openprinting-ppds
 Description: CIPFP Ausias March intranet custom papercut client installer
  This package installs and configures papercut client to print in
  CIPFP Ausias March intranet environment.

@@ -19,8 +19,9 @@ case "$1" in
 			mkdir -p "$TARGET_DIR"
 			# bypass broken link ...
 			cp -r $CLIENT_DIR/* $TARGET_DIR || true
+			chmod 755 "$TARGET_DIR/pc-client-linux.sh"
 			sed -e "s%_@_TARGET_DIR_@_%$TARGET_DIR%g" /usr/share/ausias-papercut-client/clickcontrol.sh.in > /etc/profile.d/clickcontrol.sh
-			chmod 755 "$CLIENT_DIR/pc-client-linux.sh" /etc/profile.d/clickcontrol.sh
+			chmod 755 "/etc/profile.d/clickcontrol.sh"
 			umount "$TMP_DIR" || true
 			rmdir "$TMP_DIR" || true
 			echo "Papercut client successfully installed"

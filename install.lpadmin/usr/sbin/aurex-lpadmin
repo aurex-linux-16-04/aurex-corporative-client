@@ -1,0 +1,71 @@
+#!/bin/sh
+# -------
+# File:        aurex-lpadmin
+# Description: manage papercut printers
+# Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along 
+# with this program; if not, write to the Free Software Foundation, Inc., 
+# 51 Franklin St, Fifth Floor, Boston MA 02110-1301 USA
+# --------
+
+# funcs
+# -----
+
+die(){
+	echo "$1" >&2
+	exit 1
+}
+
+usage(){
+	die "Usage: $(basename "$0") {update|remove}"
+}
+
+remove_printer(){
+	lpadmin -x "$1" || true
+	rm -f "$DB_DIR/$1"
+}
+
+DB_DIR="/var/lib/aurex-lpadmin"
+PRINTERS_DIR="/etc/aurex-lpadmin/printers.d"
+DEFAULT_PRINTER="/etc/aurex-lpadmin/default"
+
+case "$1" in
+	update)
+		for f in $(ls -1 $PRINTERS_DIR) ; do
+			[ ! -e "$DB_DIR/$f" ] || remove_printer "$f"
+			# parse printer info
+			. "$PRINTERS_DIR/$f"
+			if [ "$PRINTER_PPD" ] && [ "$PRINTER_URI" ] ; then
+				if lpadmin -p "$f" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" ; then
+					cp $PRINTERS_DIR/$f $DB_DIR/
+				fi
+			fi
+		done
+		# test if DEFAULT_PRINTER is a no-broken link
+		if [ -L "$DEFAULT_PRINTER" ] &&  [ -r "$DEFAULT_PRINTER" ] ; then
+			DEF_PRINTER="$(basename "$(readlink -f "$DEFAULT_PRINTER")")"
+			lpadmin -d "$DEF_PRINTER" || true
+		fi
+		;;
+	remove)
+		for f in $(ls -1 $DB_DIR) ; do
+			remove_printer "$f"
+		done
+		;;
+	*)
+		usage
+		;;
+esac
+exit 0
+
