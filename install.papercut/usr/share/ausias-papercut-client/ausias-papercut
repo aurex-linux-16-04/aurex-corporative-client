@@ -32,4 +32,9 @@ case "$1" in
 		rm -f /etc/profile.d/clickcontrol.sh
 		rm -fr "$TARGET_DIR"
 		;;
+	*)
+		usage
+		;;
+esac
+
 exit 0
