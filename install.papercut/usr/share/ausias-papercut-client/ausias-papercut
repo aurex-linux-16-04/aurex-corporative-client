@@ -1,6 +1,4 @@
 #!/bin/sh
-PCCLIENT_SHARE="//fsserver/pcclient"
-CLIENT_DIR="$TMP_DIR/linux"
 TARGET_DIR="/clickcontrol"
 
 usage(){
@@ -9,11 +7,13 @@ usage(){
 
 case "$1" in 
 	install)
+		PCCLIENT_SHARE="//fsserver/pcclient"
+		TMP_DIR="$(mktemp -d)"
+		CLIENT_DIR="$TMP_DIR/linux"
 		# try to mount pcclient resource
 		echo "Trying to mount $PCCLIENT_SHARE to get linux papercut client files"
 		rc=0
 		smbmount "$PCCLIENT_SHARE" "$TMP_DIR" -o guest || rc=$?
-		TMP_DIR="$(mktemp -d)"
 		# do some additional tests
 		if [ $rc -eq 0 ] && [ -d "$CLIENT_DIR" ] && [ -e "$CLIENT_DIR/pc-client-linux.sh" ] && [ -d "$CLIENT_DIR/lib-ext" ] && [ -d "$CLIENT_DIR/lib" ] ; then
 			mkdir -p "$TARGET_DIR"
