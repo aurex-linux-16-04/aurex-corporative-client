@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.10) precise; urgency=low
+
+  * Fixed client files installation
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 25 Sep 2012 13:41:12 +0200
+
 aurex-clickcontrol-client (0.9) precise; urgency=low
 
   * New binary ausias-papercut-client
