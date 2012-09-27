@@ -2,3 +2,4 @@
 /usr/share/ausias-cc-default-settings/mountpoints	/etc/aurex-cc/mountpoints.d/ausias-cc-default-settings.mountpoints
 /usr/share/ausias-cc-default-settings/hosts		/etc/aurex-cc/hosts.d/ausias-cc-default-settings.hosts
 /var/lib/ausias-cc-default-settings/ldap-auth.cfg	/usr/share/aurex-transmute/ausias-cc/preseed/ldap-auth.cfg
+/usr/share/ausias-cc-default-settings/smb-passwd.expect	/etc/aurex-passwd/net-passwd

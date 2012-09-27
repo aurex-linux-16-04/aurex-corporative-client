@@ -30,7 +30,7 @@ Description: Aurex printer configuration utility
 
 Package: ausias-cc-default-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota
+Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota, samba-common-bin, expect, aurex-passwd
 Description: Metapackage for CIPFP Ausias March intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
@@ -41,4 +41,11 @@ Depends: ${misc:Depends}, smbfs, ausias-cc-default-settings, openjdk-6-jre|sun-j
 Description: CIPFP Ausias March intranet custom papercut client installer
  This package installs and configures papercut client to print in
  CIPFP Ausias March intranet environment.
+
+Package: aurex-passwd
+Architecture: all
+Depends: ${misc:Depends}, passwd, expect, yad, zenity, wmctrl
+Description: Simple GUI to change user password
+ Simple and plugable GUI (using yad and zenity) to change passwd
+ for ordinary desktop users.
 

@@ -1,0 +1,37 @@
+#!/usr/bin/expect
+######################################
+#$
+#$  Automated 'passwd' Script
+#$
+######################################
+#$
+#$ usage example:
+#$
+#$ ./passwd.sh username oldpassword newpassword
+#$
+######################################
+
+set username [lindex $argv 0]
+set oldpass [lindex $argv 1]
+set newpass [lindex $argv 2]
+
+spawn passwd $username
+
+#
+sleep 1
+expect "password for $username"
+expect "password:"
+
+send "$oldpass\r"
+
+expect "password:"
+send "$newpass\r"
+expect "etype"
+send "$newpass\r"
+
+expect {
+"successfully" exit 0
+}
+exit 1
+
+

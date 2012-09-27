@@ -1,0 +1,36 @@
+#!/usr/bin/expect
+######################################
+#$
+#$  Automated 'smbpasswd' Script
+#$
+######################################
+#$
+#$ usage example:
+#$
+#$ ./passwd.sh username oldpassword newpassword
+#$
+######################################
+
+set username [lindex $argv 0]
+set oldpass [lindex $argv 1]
+set newpass [lindex $argv 2]
+
+spawn smbpasswd -r fsserver
+
+#
+sleep 1
+expect "Old SMB password:"
+
+send "$oldpass\r"
+
+expect "New SMB password:"
+send "$newpass\r"
+expect "etype"
+send "$newpass\r"
+
+expect {
+"Password changed for user" exit 0
+}
+exit 1
+
+

@@ -1,0 +1,62 @@
+#!/bin/sh
+WIN_ICON="gtk-edit"
+WIN_TITLE="aurex-passwd"
+
+show_desktop(){
+	wmctrl -r "$WIN_TITLE" -k off
+}
+
+die(){
+	zenity --error --text="\nERROR\n$1"
+#	echo "$1"
+	exit 1
+}
+
+info(){
+	 zenity --info --text="\n$1" --title="$WIN_TITLE"
+#	echo "$1"
+	exit 0
+}
+
+get_user_type(){
+	USER_TYPE=""
+	NUM_USERS=$(getent passwd "$PASS_USER" |wc -l)
+	if [ "$NUM_USERS" ] && [ $NUM_USERS -gt 0 ] ; then
+		NUM_LOCAL_USERS=$(grep "^$PASS_USER:" /etc/passwd |wc -l)
+		if [ "$NUM_LOCAL_USERS" ] && [ $NUM_LOCAL_USERS -eq $NUM_USERS ] ; then
+			USER_TYPE="local"
+		else
+			USER_TYPE="net"
+		fi
+	fi
+	echo "$USER_TYPE"
+	return 0
+}
+
+PASS_USER="$(id -un)"
+USER_TYPE="$(get_user_type)"
+[ "$USER_TYPE" ] || die "Tipo de usuario desconocido"
+
+EXPECT_PASS_SCRIPT="/etc/aurex-passwd/${USER_TYPE}-passwd"
+[ -x "$EXPECT_PASS_SCRIPT" ] || die "No se encuentra el programa para cambiar contraseñas de tipo \'$USER_TYPE\'"
+
+OLD_LANG="$LANG"
+rc=0
+# yad --form --title="$WIN_TITLE" --window-icon=$WIN_ICON --image=$WIN_ICON \
+#  --on-top \
+#  --center --width=440 --height=220 \
+#  --field="Cambio de contraseña para el usuario $PASS_USER":LBL \
+#  --field="Contraseña actual":H \
+#  --field="Nueva contraseña":H \
+#  --field="Verifique la nueva contraseña":H |{ LANG=C; xargs -0 $EXPECT_PASS_SCRIPT ; } || rc =$?
+
+zenity --forms  --window-icon=$WIN_ICON --title="$WIN_TITLE" --add-password="Contraseña actual:" --add-password="Nueva contraseña:" --add-password="Verifique la nueva contraseña:" --text="Cambiar contraseña para el usuario $PASS_USER" |{ LANG=C; xargs -0 $EXPECT_PASS_SCRIPT ; } || rc =$?
+export LANG="$OLD_LANG"
+
+if [ $rc -eq 0 ] ; then
+	info "Contraseña cambiada correctamente"
+else
+	die "Contraseña no cambiada"
+fi
+exit 0
+

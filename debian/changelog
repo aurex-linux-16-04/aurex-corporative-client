@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.13) precise; urgency=low
+
+  * New binary package aurex-passwd
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 28 Sep 2012 00:28:09 +0200
+
 aurex-clickcontrol-client (0.12) precise; urgency=low
 
   * New binary package aurex-lpadmin
