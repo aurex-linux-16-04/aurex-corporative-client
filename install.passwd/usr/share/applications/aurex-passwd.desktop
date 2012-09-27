@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Exec=aurex-passwd
+Icon=gtk-edit
+Type=Application
+Categories=XFCE;GTK;Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-PersonalSettings;
+Terminal=false
+StartupNotify=true
+Name=aurex-passwd
+Comment=Change password
+Comment[es]=Cambiar contraseña
