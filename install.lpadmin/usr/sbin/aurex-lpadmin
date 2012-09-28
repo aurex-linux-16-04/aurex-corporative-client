@@ -47,13 +47,14 @@ case "$1" in
 			# reset variables
 			PRINTER_PPD=""
 			PRINTER_URI=""
-			PRINTER_OPTIONS=""
+			PRINTER_ALLOW=""
 			
 			# TODO: parse printer info
 			. "$PRINTERS_DIR/$f"
 			if [ "$PRINTER_PPD" ] && [ "$PRINTER_URI" ] ; then
-				if lpadmin -p "$f" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" $PRINTER_OPTIONS ; then
+				if lpadmin -p "$f" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" ; then
 					cp $PRINTERS_DIR/$f $DB_DIR/
+					[ -z "$PRINTER_ALLOW" ] || lpadmin -p "$f" -u allow:"$PRINTER_ALLOW" || true
 				fi
 			fi
 		done
