@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.14) precise; urgency=low
+
+  * Added a tricky workaround in clickcontrol.sh for non-domain users
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 28 Sep 2012 15:56:57 +0200
+
 aurex-clickcontrol-client (0.13) precise; urgency=low
 
   * New binary package aurex-passwd

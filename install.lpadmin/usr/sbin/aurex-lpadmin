@@ -44,10 +44,15 @@ case "$1" in
 	update)
 		for f in $(ls -1 $PRINTERS_DIR) ; do
 			[ ! -e "$DB_DIR/$f" ] || remove_printer "$f"
-			# parse printer info
+			# reset variables
+			PRINTER_PPD=""
+			PRINTER_URI=""
+			PRINTER_OPTIONS=""
+			
+			# TODO: parse printer info
 			. "$PRINTERS_DIR/$f"
 			if [ "$PRINTER_PPD" ] && [ "$PRINTER_URI" ] ; then
-				if lpadmin -p "$f" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" ; then
+				if lpadmin -p "$f" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" $PRINTER_OPTIONS ; then
 					cp $PRINTERS_DIR/$f $DB_DIR/
 				fi
 			fi
