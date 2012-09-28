@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.17) precise; urgency=low
+
+  * dummy upgrade
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 28 Sep 2012 17:29:12 +0200
+
 aurex-clickcontrol-client (0.16) precise; urgency=low
 
   * Replaced sh with bash in aurex-lpadmin
