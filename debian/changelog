@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.16) precise; urgency=low
+
+  * Replaced sh with bash in aurex-lpadmin
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 28 Sep 2012 17:19:39 +0200
+
 aurex-clickcontrol-client (0.15) precise; urgency=low
 
   * Added PRINTER_ALLOW option

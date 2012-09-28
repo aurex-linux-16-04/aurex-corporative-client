@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/bash
+# NOTE: bash is required due to an obscure problem with dash, quote expansion and variables with spaces
+#       Detected with expansion of 'Domain Users' group (a really brain-damaged choice for a group name)
+
 # -------
 # File:        aurex-lpadmin
 # Description: manage papercut printers
@@ -54,6 +57,7 @@ case "$1" in
 			if [ "$PRINTER_PPD" ] && [ "$PRINTER_URI" ] ; then
 				if lpadmin -p "$f" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" ; then
 					cp $PRINTERS_DIR/$f $DB_DIR/
+					# getent group "$kk" |cut -f 3 -d :
 					[ -z "$PRINTER_ALLOW" ] || lpadmin -p "$f" -u allow:"$PRINTER_ALLOW" || true
 				fi
 			fi
