@@ -1,3 +1,10 @@
+aurex-clickcontrol-client (0.19) precise; urgency=low
+
+  * Added username to parameters in aurex-passwd
+  * aurex-passwd fixed
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 02 Oct 2012 10:32:11 +0200
+
 aurex-clickcontrol-client (0.18) precise; urgency=low
 
   * Added missing files of aurex-passwd

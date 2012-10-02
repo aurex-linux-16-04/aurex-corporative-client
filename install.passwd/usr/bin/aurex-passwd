@@ -50,7 +50,7 @@ rc=0
 #  --field="Nueva contraseña":H \
 #  --field="Verifique la nueva contraseña":H |{ LANG=C; xargs -0 $EXPECT_PASS_SCRIPT ; } || rc =$?
 
-zenity --forms  --window-icon=$WIN_ICON --title="$WIN_TITLE" --add-password="Contraseña actual:" --add-password="Nueva contraseña:" --add-password="Verifique la nueva contraseña:" --text="Cambiar contraseña para el usuario $PASS_USER" |{ LANG=C; xargs -0 $EXPECT_PASS_SCRIPT ; } || rc =$?
+zenity --forms  --window-icon=$WIN_ICON --title="$WIN_TITLE" --add-password="Contraseña actual:" --add-password="Nueva contraseña:" --add-password="Verifique la nueva contraseña:" --text="Cambiar contraseña para el usuario $PASS_USER" |tr "|" "\000" |{ LANG=C; xargs -0 $EXPECT_PASS_SCRIPT "$PASS_USER" ; } || rc=$?
 export LANG="$OLD_LANG"
 
 if [ $rc -eq 0 ] ; then
