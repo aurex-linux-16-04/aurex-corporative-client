@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.18) precise; urgency=low
+
+  * Added missing files of aurex-passwd
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 02 Oct 2012 09:55:30 +0200
+
 aurex-clickcontrol-client (0.17) precise; urgency=low
 
   * dummy upgrade
