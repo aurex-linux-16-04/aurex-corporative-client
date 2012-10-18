@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.20) precise; urgency=low
+
+  * smbapasswd expect wrapper moved to package aurex-smbpasswd 
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 18 Oct 2012 08:25:11 +0200
+
 aurex-clickcontrol-client (0.19) precise; urgency=low
 
   * Added username to parameters in aurex-passwd

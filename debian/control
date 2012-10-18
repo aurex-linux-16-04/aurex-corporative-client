@@ -30,7 +30,7 @@ Description: Aurex printer configuration utility
 
 Package: ausias-cc-default-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota, samba-common-bin, expect, aurex-passwd
+Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota, aurex-smbpasswd, aurex-passwd
 Description: Metapackage for CIPFP Ausias March intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
@@ -48,4 +48,11 @@ Depends: ${misc:Depends}, passwd, expect, yad, zenity, wmctrl
 Description: Simple GUI to change user password
  Simple and plugable GUI (using yad and zenity) to change passwd
  for ordinary desktop users.
+
+Package: aurex-smbpasswd
+Architecture: all
+Depends: ${misc:Depends}, samba-common-bin, expect
+Description: Simple smbpasswd wrapper
+ Simple wrapper to smbpasswd using expect.
+
 

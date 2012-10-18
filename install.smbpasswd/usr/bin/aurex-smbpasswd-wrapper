@@ -7,15 +7,16 @@
 #$
 #$ usage example:
 #$
-#$ ./passwd.sh username oldpassword newpassword
+#$ ./passwd.sh sambahost username oldpassword newpassword
 #$
 ######################################
 
-set username [lindex $argv 0]
-set oldpass [lindex $argv 1]
-set newpass [lindex $argv 2]
+set sambahost [lindex $argv 0]
+set username [lindex $argv 1]
+set oldpass [lindex $argv 2]
+set newpass [lindex $argv 3]
 
-spawn smbpasswd -r fsserver
+spawn smbpasswd -r $sambahost -U $username
 
 #
 sleep 1
