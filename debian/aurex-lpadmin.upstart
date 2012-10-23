@@ -1,0 +1,10 @@
+# update aurex-lpadmin printers
+#
+
+description     "update aurex-lpadmin printers"
+
+start on started cups
+
+task
+exec aurex-lpadmin update
+

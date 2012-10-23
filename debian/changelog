@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.21) precise; urgency=low
+
+  * aurex-lpadmin: Added upstart script for "deferred installation"
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 23 Oct 2012 19:47:21 +0200
+
 aurex-clickcontrol-client (0.20) precise; urgency=low
 
   * smbapasswd expect wrapper moved to package aurex-smbpasswd 

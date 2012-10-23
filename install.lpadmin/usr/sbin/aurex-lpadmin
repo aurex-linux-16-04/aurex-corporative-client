@@ -31,7 +31,7 @@ die(){
 }
 
 usage(){
-	die "Usage: $(basename "$0") {update|remove}"
+	die "Usage: $(basename "$0") [--force]  {update|remove}"
 }
 
 remove_printer(){
@@ -39,36 +39,56 @@ remove_printer(){
 	rm -f "$DB_DIR/$1"
 }
 
+
+if [ "$1" = "--force" ] ; then
+	FORCE="Y"
+	shift
+fi
 DB_DIR="/var/lib/aurex-lpadmin"
 PRINTERS_DIR="/etc/aurex-lpadmin/printers.d"
 DEFAULT_PRINTER="/etc/aurex-lpadmin/default"
+OLD_DEFAULT_PRINTER="/etc/aurex-lpadmin/old-default"
 
 case "$1" in
 	update)
+		pidof cupsd >/dev/null || exit 0
+		for f in $(ls -1 $DB_DIR) ; do
+			[ -e "$PRINTERS_DIR/$f" ] || remove_printer "$f"
+		done
 		for f in $(ls -1 $PRINTERS_DIR) ; do
-			[ ! -e "$DB_DIR/$f" ] || remove_printer "$f"
-			# reset variables
-			PRINTER_PPD=""
-			PRINTER_URI=""
-			PRINTER_ALLOW=""
-			
-			# TODO: parse printer info
-			. "$PRINTERS_DIR/$f"
-			if [ "$PRINTER_PPD" ] && [ "$PRINTER_URI" ] ; then
-				if lpadmin -p "$f" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" ; then
-					cp $PRINTERS_DIR/$f $DB_DIR/
-					# getent group "$kk" |cut -f 3 -d :
-					[ -z "$PRINTER_ALLOW" ] || lpadmin -p "$f" -u allow:"$PRINTER_ALLOW" || true
+			if [ "$FORCE" ] || [ ! -e "$DB_DIR/$f" ] ; then
+				[ ! -e "$DB_DIR/$f" ] || remove_printer "$f"
+				# reset variables
+				PRINTER_PPD=""
+				PRINTER_URI=""
+				PRINTER_ALLOW=""
+		
+				# TODO: parse printer info
+				. "$PRINTERS_DIR/$f"
+				if [ "$PRINTER_PPD" ] && [ "$PRINTER_URI" ] ; then
+					if lpadmin -p "$f" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" ; then
+						cp $PRINTERS_DIR/$f $DB_DIR/
+						# getent group "$kk" |cut -f 3 -d :
+						[ -z "$PRINTER_ALLOW" ] || lpadmin -p "$f" -u allow:"$PRINTER_ALLOW" || true
+					fi
 				fi
 			fi
 		done
-		# test if DEFAULT_PRINTER is a no-broken link
+		# test if DEFAULT_PRINTER is a no-broken link and if it has been changed
 		if [ -L "$DEFAULT_PRINTER" ] &&  [ -r "$DEFAULT_PRINTER" ] ; then
 			DEF_PRINTER="$(basename "$(readlink -f "$DEFAULT_PRINTER")")"
-			lpadmin -d "$DEF_PRINTER" || true
+			if [ -L "$OLD_DEFAULT_PRINTER" ] ; then
+				OLD_PRINTER="$(basename "$(readlink -f "$OLD_DEFAULT_PRINTER")")"
+			fi
+			if [ "$DEF_PRINTER" != "$OLD_PRINTER" ] ; then
+				rm -f "$OLD_DEFAULT_PRINTER"
+				ln -s "$(readlink -f "$DEFAULT_PRINTER")" "$OLD_DEFAULT_PRINTER" || true
+				lpadmin -d "$DEF_PRINTER" || true
+			fi
 		fi
 		;;
 	remove)
+		pidof cupsd >/dev/null || exit 0
 		for f in $(ls -1 $DB_DIR) ; do
 			remove_printer "$f"
 		done
