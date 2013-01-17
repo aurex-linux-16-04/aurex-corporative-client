@@ -17,7 +17,7 @@ Description: ClickControl compatible pam and nsswitch configuration
 
 Package: aurex-cc-mount
 Architecture: all
-Depends: ${misc:Depends}, aurex-transmute, aurex-fs-utils, libpam-mount
+Depends: ${misc:Depends}, aurex-transmute, aurex-fs-utils (>= 0.5), libpam-mount
 Description: Clickcontrol compatible libpam-mount settings
  Utility to simplify libpam-mount configuration. Default settings are
  compatible with ClickControl samba server shares configuration.

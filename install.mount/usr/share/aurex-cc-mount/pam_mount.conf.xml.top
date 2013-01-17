@@ -23,11 +23,11 @@
 
 <smbmount>/usr/bin/smbmount //%(SERVER)/%(VOLUME) %(MNTPT) -o "username=%(USER)%(before=\",\" OPTIONS)"</smbmount>
 
-<ncpmount>/usr/bin/ncpmount %(SERVER)/%(USER) %(MNTPT) -o "pass-fd=0,volume=%(VOLUME)%(before=\",\" OPTIONS)"</ncpmount>
+<ncpmount>mount -t davfs %(SERVER)/%(VOLUME) %(MNTPT) -o "username=%(USER),uid=%(USERUID),gid=%(USERGID)%(before=\",\" OPTIONS)"</ncpmount>
+
+<ncpumount>/bin/umount %(MNTPT)</ncpumount>
 
 <smbumount>/usr/bin/smbumount %(MNTPT)</smbumount>
-
-<ncpumount>/usr/bin/ncpumount %(MNTPT)</ncpumount>
 
 <umount>/bin/umount %(MNTPT)</umount>
 

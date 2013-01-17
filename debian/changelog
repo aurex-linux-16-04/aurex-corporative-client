@@ -1,3 +1,11 @@
+aurex-clickcontrol-client (0.23) precise; urgency=low
+
+  * Replace ncpmount, ncpumount helpers in pam_mount to
+    use davfs and not ncpfs as a workaround to support
+    webdav in pam_mount.
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 17 Jan 2013 08:19:29 +0100
+
 aurex-clickcontrol-client (0.22) precise; urgency=low
 
   * Use a different algorithm to verify if logged user is
