@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.24) precise; urgency=low
+
+  * Mount 'Departamentos' share for groups SECRETARIA  and CONSERGERIA
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 30 Jan 2013 15:44:28 +0100
+
 aurex-clickcontrol-client (0.23) precise; urgency=low
 
   * Replace ncpmount, ncpumount helpers in pam_mount to
