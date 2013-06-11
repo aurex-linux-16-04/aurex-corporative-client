@@ -55,4 +55,8 @@ Depends: ${misc:Depends}, samba-common-bin, expect
 Description: Simple smbpasswd wrapper
  Simple wrapper to smbpasswd using expect.
 
-
+Package: ausias-dc-settings
+Architecture: all
+Description: ausias dc server settings
+ Configuration settings for DC servers in CIPFP Ausias March
+ intranet environment
