@@ -22,7 +22,7 @@ case "$1" in
 	rm -f /etc/sudoers.d/20_netadmins
 	rm /var/lib/ausias-cc-default-settings/ldap-auth.cfg
         aurex-transmute --module=ausias-cc untransmute || true
-
+	[ ! -x /usr/lib/lightdm/lightdm-set-defaults ] || /usr/lib/lightdm/lightdm-set-defaults -i false || true
     ;;
 
     failed-upgrade)

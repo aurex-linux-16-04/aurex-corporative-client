@@ -1,3 +1,10 @@
+aurex-clickcontrol-client (0.25) precise; urgency=low
+
+  * Set hide-users to true to simplify network users access
+    in lightdm 
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 05 Sep 2013 10:16:58 +0200
+
 aurex-clickcontrol-client (0.24) precise; urgency=low
 
   * Mount 'Departamentos' share for groups SECRETARIA  and CONSERGERIA
