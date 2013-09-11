@@ -1,4 +1,4 @@
-/net/satanas/exports/mirror	/datos/mirror
-/net/satanas/exports/isos	/datos/isos
-/net/satanas/exports/netcache	/datos/netcache
+/net/satanas/export/mirror	/datos/mirror
+/net/satanas/export/isos	/datos/isos
+/net/satanas/export/netcache	/datos/netcache
 
