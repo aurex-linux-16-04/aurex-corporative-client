@@ -4,7 +4,7 @@ case "$1" in
     configure)
 	cp /etc/apt/sources.list /var/lib/ausias-cc-extra-settings/sources.list.backup
 	aurex-transmute --module=autofs transmute || true
-	aurex-transmute --force --module=transmute sources || true
+	aurex-transmute --force --module=transmute transmute sources || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
     	;;
