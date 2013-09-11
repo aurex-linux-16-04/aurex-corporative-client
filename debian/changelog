@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.27) precise; urgency=low
+
+  * Fixed postinstall
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 11 Sep 2013 10:50:16 +0200
+
 aurex-clickcontrol-client (0.26) precise; urgency=low
 
   * New binary package ausias-cc-extra-settings

@@ -63,7 +63,7 @@ Description: ausias dc server settings
 
 Package: ausias-cc-extra-settings
 Architecture: all
-Depends: ${misc:Depends}, autofs
+Depends: ${misc:Depends}, autofs, aurex-transmute
 Description: Additional metapackage for CIPFP Ausias March intranet
  This metapackage installs additional packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
