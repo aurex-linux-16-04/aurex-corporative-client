@@ -1,0 +1,127 @@
+#!/bin/sh -e
+# ---------------------
+# ausias-classroom-base
+# ---------------------
+
+# funcs
+# ---------------------
+die(){
+	echo "$1" >&2
+	exit 1
+}
+
+usage(){
+	die "Uso: $(basename "$0") AULA NUMERO_DE_PC (usar '0' o '254' para el PC del profesor)"
+}
+
+# initial tests
+# ---------------------
+
+# root privileges required
+[ $(id -u) -eq 0 ] || die "You must be root, my friend!!!"
+
+# required parameters
+[ "$1" -a "$2" ] || usage
+
+CLASS_NAME="$1"
+PC_NUMBER="$2"
+PACKAGE_LIST="aurex-daw aurex-asir aurex-smr"
+NEW_HOSTNAME="$CLASS_NAME-$PC_NUMBER"
+
+if [ "$PC_NUMBER" -eq "0" ] ; then
+	PC_NUMBER="254"
+fi
+if [ "$PC_NUMBER" -eq "254" ] ; then
+	NEW_HOSTNAME="$CLASS_NAME-prof"
+	PACKAGE_LIST="ausias-classroom-teacher $PACKAGE_LIST"
+else
+	PACKAGE_LIST="ausias-classroom-student $PACKAGE_LIST"
+fi
+
+	
+
+ALIAS_ADDRESS="192.168.99.$PC_NUMBER"
+
+# presence of eth0
+if ! ifconfig -a |grep -q "^eth0[[:blank:]]" ; then
+	die "No se encuentra al interfaz eth0!!!\nPosiblemente e deba a que la máquina se ha clonado sin borrar el registro de la MAC que hace udev.\n\
+Por favor, ejecute: \nsudo rm /etc/udev/rules.d/70-persistent-net.rules\n\ny reinicie el equipo"
+fi
+
+# request user confirmation
+cat <<EOF
+================================
+====        ATENCION       =====
+================================
+Este programa:
+	1. actualizará este equipo
+	2. modificara la configuración de red y del network manager
+	3. modificará el hostname
+
+Los parametros son:
+	AULA:	$CLASS_NAME
+	Num.PC:	$PC_NUMBER
+
+	HOSTNAME:	$NEW_HOSTNAME
+	ALIAS:		$ALIAS_ADDRESS
+	Instalar:	$PACKAGE_LIST
+
+Si está seguro de querer continuar, escriba SI (y pulse INTRO)
+EOF
+
+read a
+[ "$a" = "SI" ] || die "Ejecución ABORTADA"
+
+# main
+
+# fix network
+
+cat <<EOF >/etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+
+auto eth0:99
+iface eth0:99 inet static
+	address $ALIAS_ADDRESS
+	netmask 255.255.255.0
+EOF
+
+echo "Tratando de parar el Network manager y reinmiciar la red"
+invoke-rc.d network-manager stop || true
+sleep 1
+invoke-rc.d networking stop || true
+sleep 1
+invoke-rc.d networking start || die "Error reiniciando la red"
+
+# configure nm
+cat <<EOF >/etc/NetworkManager/NetworkManager.conf
+[main]
+plugins=ifupdown,keyfile
+dns=dnsmasq
+
+[ifupdown]
+managed=true
+EOF
+
+# update
+apt-get update
+apt-get dist-upgrade
+apt-get install $PACKAGE_LIST
+
+# replace hostname
+
+OLD_HOSTNAME="$(cat /etc/hostname)"
+echo "$NEW_HOSTNAME" > /etc/hostname
+sed -i -e "/[[:blank:]]$OLD_HOSTNAME/s%$OLD_HOSTNAME%$NEW_HOSTNAME%" /etc/hosts
+
+# That's all Folks
+echo "Proceso FINALIZADO. Reinicie el equipo"
+exit 0
+
