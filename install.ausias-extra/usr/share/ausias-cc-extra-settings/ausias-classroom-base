@@ -93,10 +93,6 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet dhcp
 
-auto eth0:99
-iface eth0:99 inet static
-	address $ALIAS_ADDRESS
-	netmask 255.255.255.0
 EOF
 
 echo "Tratando de parar el Network manager y reinmiciar la red"
