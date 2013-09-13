@@ -11,7 +11,7 @@ die(){
 }
 
 usage(){
-	die "Uso: $(basename "$0") AULA NUMERO_DE_PC (usar '0' o '254' para el PC del profesor)"
+	die "Uso: $(basename "$0") AULA NUMERO_DE_PC\n     Ejemplo: Para el pc07 del aula 9: $(basename "$0") S09 7\n      (usar '0' o '254' para el PC del profesor)"
 }
 
 # initial tests
@@ -22,11 +22,15 @@ usage(){
 
 # required parameters
 [ "$1" -a "$2" ] || usage
+echo "$2" |grep -q "^[[:digit:]]\{1,3\}$" || usage
 
 CLASS_NAME="$1"
-PC_NUMBER="$2"
+# remove padding zeros
+PC_NUMBER="$(printf "%01d" $2)"
+
+[ $PC_NUMBER -eq 254 ] || [ $PC_NUMBER -le 99 -a $PC_NUMBER -ge 0 ] || usage
+
 PACKAGE_LIST="aurex-daw aurex-asir aurex-smr"
-NEW_HOSTNAME="$CLASS_NAME-$PC_NUMBER"
 
 if [ "$PC_NUMBER" -eq "0" ] ; then
 	PC_NUMBER="254"
@@ -35,6 +39,8 @@ if [ "$PC_NUMBER" -eq "254" ] ; then
 	NEW_HOSTNAME="$CLASS_NAME-prof"
 	PACKAGE_LIST="ausias-classroom-teacher $PACKAGE_LIST"
 else
+	# Use (1) zero padding for the hostname
+	NEW_HOSTNAME="$CLASS_NAME-$( printf "%02d" $PC_NUMBER)"
 	PACKAGE_LIST="ausias-classroom-student $PACKAGE_LIST"
 fi
 
