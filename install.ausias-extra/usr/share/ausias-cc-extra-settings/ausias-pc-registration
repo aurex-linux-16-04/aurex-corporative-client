@@ -1,0 +1,69 @@
+#!/bin/sh
+
+die(){
+	echo "$1" >&2
+	exit 1
+}
+
+usage(){
+	die "Usage: $(basename "$0") PC_NUMBER [VISIBLE_NETWORK_INTERFACE] \n       Use 0 or 254 as PC_NUMBER to register teachers PC"
+}
+
+get_classname(){
+	# guess classroom name from the argument (current IP)
+	CLIENT_IP="$1"
+	RESIDUAL="$1"
+	BYTE1="${RESIDUAL%%.*}"
+	RESIDUAL="${RESIDUAL#*.}"
+	BYTE2="${RESIDUAL%%.*}"
+	RESIDUAL="${RESIDUAL#*.}"
+	BYTE3="${RESIDUAL%%.*}"
+	RESIDUAL="${RESIDUAL#*.}"
+	BYTE4="${RESIDUAL%%.*}"
+	[ "$BYTE1" = "10" ] || return 1
+	# TODO: departamentos, despachos ....
+	case "$BYTE2" in
+		1)
+			CLASS_PREFIX="B"
+			;;
+		2)
+			CLASS_PREFIX="P"
+			;;
+		3)
+			CLASS_PREFIX="S"
+			;;
+		*)
+			return 1
+			;;
+	esac
+	echo "${CLASS_PREFIX}$(printf "%02d" $BYTE3)"
+}
+
+[ "$1" ] || usage
+PC_NUM="$(echo "$1" |sed -e "s%^0*%%")"
+echo "$PC_NUM" |grep -q "^[[:digit:]]\+$" || die "'$PC_NUM' is an invalid PC_NUMBER"
+
+if [ $PC_NUM -eq 254 ] ; then
+	PC_NUM=0
+fi
+[ $PC_NUM -ge 0 -a $PC_NUM -le 99 ] || die "'$PC_NUM' is an invalid PC_NUMBER"
+
+REG_IFACE="eth0"
+[ -z "$2" ] || REG_IFACE="$2"
+
+ifconfig -a |grep -q "^${REG_IFACE}[[:blank:]]" || die "'$REG_IFACE' is an invalid network interface"
+
+CURRENT_IP="$(LANG=C ifconfig ${REG_IFACE} |sed -ne "/^[[:blank:]]* inet addr:/{s%^.*inet addr:%%;s%[[:blank:]].*$%%;p}")"
+
+CLASS_NAME="$(get_classname "$CURRENT_IP")" || die "'$CURRENT_IP' is an invalid IP"
+
+SHARED_DIR"/net/satanas/ausias-registration"
+if [ $PC_NUM -eq 0 ] ; then
+	HOST_NAME="${CLASS_NAME}-prof"
+else
+	HOST_NAME="${CLASS_NAME}-$(printf "%02d" $PC_NUM)"
+fi
+
+echo $HOST_NAME
+exit 0
+
