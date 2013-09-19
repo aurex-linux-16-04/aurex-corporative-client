@@ -1,3 +1,10 @@
+aurex-clickcontrol-client (0.34) precise; urgency=low
+
+  * ausias-cc-extra-settings: Fix catastrophic failure when autofs is deconfigured
+    in the middle of an upgrade !!!!!
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 19 Sep 2013 16:40:24 +0200
+
 aurex-clickcontrol-client (0.33) precise; urgency=low
 
   * Remove alias configuratio from /etc/network/interfaces due to side

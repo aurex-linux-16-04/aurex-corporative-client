@@ -18,7 +18,10 @@ set -e
 
 
 case "$1" in
-    remove|upgrade|deconfigure)
+    upgrade)
+	# do nothing
+    ;;
+    remove|deconfigure)
 	aurex-transmute --module=autofs untransmute || true
 	aurex-transmute --module=ausias-cc-extra untransmute || true
 	cp /var/lib/ausias-cc-extra-settings/sources.list.backup /etc/apt/sources.list
