@@ -12,8 +12,12 @@ case "$1" in
 			if ! grep -q "^/net" /etc/auto.master ; then
 				if grep -q "^#/net" /etc/auto.master ; then
 					sed -i -e "\%^#/net%s%^#%%" /etc/auto.master
+					invoke-rc.d autofs stop || true
+					invoke-rc.d autofs start || true
 				else
 					echo "/net	-hosts" >> /etc/auto.master
+					invoke-rc.d autofs stop || true
+					invoke-rc.d autofs start || true
 				fi
 			fi
 		fi
