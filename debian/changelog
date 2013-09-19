@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.35) precise; urgency=low
+
+  * Preinst fixed
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 19 Sep 2013 17:08:24 +0200
+
 aurex-clickcontrol-client (0.34) precise; urgency=low
 
   * ausias-cc-extra-settings: Fix catastrophic failure when autofs is deconfigured

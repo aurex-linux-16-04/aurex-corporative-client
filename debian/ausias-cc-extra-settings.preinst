@@ -18,7 +18,7 @@ case "$1" in
 			fi
 		fi
 	fi
-
+	;;
     *)
         echo "preinst called with unknown argument \`$1'" >&2
         exit 1
