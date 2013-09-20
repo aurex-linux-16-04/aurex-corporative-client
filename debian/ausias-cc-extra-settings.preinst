@@ -1,5 +1,12 @@
 #!/bin/sh -e
 
+refresh_mounts(){
+	invoke-rc.d autofs stop || true
+	invoke-rc.d autofs start || true
+	sleep 2
+	ls /datos/mirror/ > /dev/null &> /dev/null || true
+}
+
 case "$1" in
     install|abort-upgrade)
 	# do nothing
@@ -12,12 +19,10 @@ case "$1" in
 			if ! grep -q "^/net" /etc/auto.master ; then
 				if grep -q "^#/net" /etc/auto.master ; then
 					sed -i -e "\%^#/net%s%^#%%" /etc/auto.master
-					invoke-rc.d autofs stop || true
-					invoke-rc.d autofs start || true
+					refresh_mounts
 				else
 					echo "/net	-hosts" >> /etc/auto.master
-					invoke-rc.d autofs stop || true
-					invoke-rc.d autofs start || true
+					refresh_mounts
 				fi
 			fi
 		fi

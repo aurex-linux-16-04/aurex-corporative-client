@@ -1,3 +1,10 @@
+aurex-clickcontrol-client (0.37) precise; urgency=low
+
+  *  wait some time in preinst to get /datos/mirror mount working
+     before the update process continues
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 20 Sep 2013 15:18:09 +0200
+
 aurex-clickcontrol-client (0.36) precise; urgency=low
 
   * Restart autofs in preinst to get nfs mirror access
