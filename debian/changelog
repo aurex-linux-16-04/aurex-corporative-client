@@ -1,3 +1,10 @@
+aurex-clickcontrol-client (0.38) precise; urgency=low
+
+  * Add ausias non-standard path for @{HOMEDIRS} settings in apparmor
+    to enable cups-pdf operation in the ausias intranet environment
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 14 Nov 2013 16:26:07 +0100
+
 aurex-clickcontrol-client (0.37) precise; urgency=low
 
   *  wait some time in preinst to get /datos/mirror mount working
