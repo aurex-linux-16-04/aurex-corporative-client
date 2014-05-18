@@ -1,3 +1,9 @@
+aurex-clickcontrol-client (0.40) precise; urgency=low
+
+  * Remove clickcontrol references in papercut-client
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 19 May 2014 01:00:43 +0200
+
 aurex-clickcontrol-client (0.39) precise; urgency=low
 
   * Include network users in libvirtd group automagically

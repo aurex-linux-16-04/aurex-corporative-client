@@ -1,5 +1,6 @@
 #!/bin/sh
-TARGET_DIR="/clickcontrol"
+OLD_TARGET_DIR="/clickcontrol"
+#TARGET_DIR="/var/lib/papercut-client"
 
 usage(){
 	echo "Usage: $(basename "$0") [install|remove]"
@@ -20,8 +21,8 @@ case "$1" in
 			# bypass broken link ...
 			cp -r $CLIENT_DIR/* $TARGET_DIR || true
 			chmod 755 "$TARGET_DIR/pc-client-linux.sh"
-			sed -e "s%_@_TARGET_DIR_@_%$TARGET_DIR%g" /usr/share/ausias-papercut-client/clickcontrol.sh.in > /etc/profile.d/clickcontrol.sh
-			chmod 755 "/etc/profile.d/clickcontrol.sh"
+			sed -e "s%_@_TARGET_DIR_@_%$TARGET_DIR%g" /usr/share/ausias-papercut-client/papercut-client.sh.in > /etc/profile.d/papercut-client.sh
+			chmod 755 "/etc/profile.d//papercut-client.sh"
 			umount "$TMP_DIR" || true
 			rmdir "$TMP_DIR" || true
 			echo "Papercut client successfully installed"
@@ -33,7 +34,7 @@ case "$1" in
 		fi
 		;;
 	remove)
-		rm -f /etc/profile.d/clickcontrol.sh
+		rm -f /etc/profile.d/papercut-client.sh
 		rm -fr "$TARGET_DIR"
 		;;
 	*)
