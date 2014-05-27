@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pam_mount>
 
-<msg-authpw>ClickControl Password: </msg-authpw>
+<msg-authpw>Samba Password: </msg-authpw>
 
 <logout wait="300" hup="yes" term="yes" kill="yes" />
 

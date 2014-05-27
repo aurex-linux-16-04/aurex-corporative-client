@@ -1,3 +1,11 @@
+aurex-clickcontrol-client (0.41) precise; urgency=low
+
+  * ausias.cc-default-settings: replaced fsserver by satanas in libpam-mount,
+    add "jefatura" mount point only for "pr_jefatura" group
+  * aurex-cc-mount: Remove clickcontrol references
+
+ -- Sandra Villanueva Gavino <savilga@gmail.com>  Wed, 28 May 2014 01:44:01 +0200
+
 aurex-clickcontrol-client (0.40) precise; urgency=low
 
   * Remove clickcontrol references in papercut-client

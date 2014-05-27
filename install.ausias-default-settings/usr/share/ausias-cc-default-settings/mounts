@@ -1,12 +1,13 @@
-<volume mountpoint="~/MisDocumentos_Servidor" path="%(USER)" server="fsserver" pgrp="PROFESORES" fstype="smbfs" />
-<volume mountpoint="~/MisDocumentos_Servidor" path="%(USER)" server="fsserver" pgrp="SECRETARIA" fstype="smbfs" />
-<volume mountpoint="~/MisDocumentos_Servidor" path="%(USER)" server="fsserver" pgrp="CONSERGERIA" fstype="smbfs" />
+<volume mountpoint="~/MisDocumentos_Servidor" path="%(USER)" server="satanas" pgrp="PROFESORES" fstype="smbfs" />
+<volume mountpoint="~/MisDocumentos_Servidor" path="%(USER)" server="satanas" pgrp="SECRETARIA" fstype="smbfs" />
+<volume mountpoint="~/MisDocumentos_Servidor" path="%(USER)" server="satanas" pgrp="CONSERGERIA" fstype="smbfs" />
 
-<volume mountpoint="~/Publico_Servidor" path="Publico" server="fsserver"  pgrp="PROFESORES" fstype="smbfs" />
-<volume mountpoint="~/Publico_Servidor" path="Publico" server="fsserver"  pgrp="SECRETARIA" fstype="smbfs" />
-<volume mountpoint="~/Publico_Servidor" path="Publico" server="fsserver"  pgrp="CONSERGERIA" fstype="smbfs" />
+<volume mountpoint="~/Publico_Servidor" path="Publico" server="satanas"  pgrp="PROFESORES" fstype="smbfs" />
+<volume mountpoint="~/Publico_Servidor" path="Publico" server="satanas"  pgrp="SECRETARIA" fstype="smbfs" />
+<volume mountpoint="~/Publico_Servidor" path="Publico" server="satanas"  pgrp="CONSERGERIA" fstype="smbfs" />
 
-<volume mountpoint="~/Departamentos" path="Departamentos" server="fsserver" pgrp="PROFESORES" fstype="smbfs" />
-<volume mountpoint="~/Departamentos" path="Departamentos" server="fsserver" pgrp="SECRETARIA" fstype="smbfs" />
-<volume mountpoint="~/Departamentos" path="Departamentos" server="fsserver" pgrp="CONSERGERIA" fstype="smbfs" />
+<volume mountpoint="~/Departamentos" path="Departamentos" server="satanas" pgrp="PROFESORES" fstype="smbfs" />
+<volume mountpoint="~/Departamentos" path="Departamentos" server="satanas" pgrp="SECRETARIA" fstype="smbfs" />
+<volume mountpoint="~/Departamentos" path="Departamentos" server="satanas" pgrp="CONSERGERIA" fstype="smbfs" />
 
+<volume mountpoint="~/Jefatura" path="jefatura" server="satanas" sgrp="pr_jefatura" fstype="smbfs" />
