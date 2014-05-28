@@ -4,7 +4,7 @@ refresh_mounts(){
 	invoke-rc.d autofs stop || true
 	invoke-rc.d autofs start || true
 	sleep 2
-	ls /datos/mirror/ > /dev/null &> /dev/null || true
+	ls /datos/mirror/ > /dev/null 2> /dev/null || true
 }
 
 case "$1" in
