@@ -1,6 +1,13 @@
+aurex-clickcontrol-client (0.42) precise; urgency=low
+
+  * ausias-cc-default-settings: replaced mount point "jefatura"
+    by "direccion" 
+
+ -- Sandra Villanueva Gavino <savilga@gmail.com>  Mon, 02 Jun 2014 13:41:47 +0200
+
 aurex-clickcontrol-client (0.41) precise; urgency=low
 
-  * ausias.cc-default-settings: replaced fsserver by satanas in libpam-mount,
+  * ausias-cc-default-settings: replaced fsserver by satanas in libpam-mount,
     add "jefatura" mount point only for "pr_jefatura" group
   * aurex-cc-mount: Remove clickcontrol references
 
