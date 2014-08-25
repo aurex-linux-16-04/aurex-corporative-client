@@ -1,3 +1,10 @@
+aurex-corporative-client (0.50) trusty; urgency=medium
+
+  * Source package renamed
+  * Updated for trusty
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 25 Aug 2014 19:50:37 +0200
+
 aurex-clickcontrol-client (0.42) precise; urgency=low
 
   * ausias-cc-default-settings: replaced mount point "jefatura"
