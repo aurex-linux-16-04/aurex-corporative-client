@@ -14,7 +14,7 @@ case "$1" in
 		# try to mount pcclient resource
 		echo "Trying to mount $PCCLIENT_SHARE to get linux papercut client files"
 		rc=0
-		smbmount "$PCCLIENT_SHARE" "$TMP_DIR" -o guest || rc=$?
+		mount -t cifs "$PCCLIENT_SHARE" "$TMP_DIR" -o guest || rc=$?
 		# do some additional tests
 		if [ $rc -eq 0 ] && [ -d "$CLIENT_DIR" ] && [ -e "$CLIENT_DIR/pc-client-linux.sh" ] && [ -d "$CLIENT_DIR/lib-ext" ] && [ -d "$CLIENT_DIR/lib" ] ; then
 			mkdir -p "$TARGET_DIR"

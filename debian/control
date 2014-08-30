@@ -17,7 +17,7 @@ Description: Aurex Corporative Client pam and nsswitch configuration
 
 Package: aurex-cc-mount
 Architecture: all
-Depends: ${misc:Depends}, aurex-transmute, aurex-fs-utils (>= 0.5), libpam-mount
+Depends: ${misc:Depends}, aurex-transmute, cifs-utils, aurex-fs-utils (>= 0.6), libpam-mount
 Description: Aurex Corporative Client libpam-mount settings
  Utility to simplify libpam-mount configuration. Default settings are
  allow acces to Corporative samba server shares configuration.
@@ -37,7 +37,7 @@ Description: Metapackage for CIPFP Ausias March corporative intranet clients
 
 Package: ausias-papercut-client
 Architecture: all
-Depends: ${misc:Depends}, smbfs, ausias-cc-default-settings, openjdk-6-jre|sun-java6-bin, openprinting-ppds
+Depends: ${misc:Depends}, cifs-utils, ausias-cc-default-settings, openjdk-6-jre|sun-java6-bin, openprinting-ppds
 Description: CIPFP Ausias March intranet custom papercut client installer
  This package installs and configures papercut client to print in
  CIPFP Ausias March intranet environment.

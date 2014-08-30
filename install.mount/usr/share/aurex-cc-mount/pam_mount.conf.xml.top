@@ -21,7 +21,7 @@
 
 <cifsmount>/bin/mount -t cifs //%(SERVER)/%(VOLUME) %(MNTPT) -o "username=%(USER)%(before=\",\" OPTIONS)"</cifsmount>
 
-<smbmount>/usr/bin/smbmount //%(SERVER)/%(VOLUME) %(MNTPT) -o "username=%(USER)%(before=\",\" OPTIONS)"</smbmount>
+<smbmount>/bin/mount -t cifs //%(SERVER)/%(VOLUME) %(MNTPT) -o "username=%(USER)%(before=\",\" OPTIONS)"</smbmount>
 
 <ncpmount>mount -t davfs %(SERVER)/%(VOLUME) %(MNTPT) -o "username=%(USER),uid=%(USERUID),gid=%(USERGID)%(before=\",\" OPTIONS)"</ncpmount>
 
