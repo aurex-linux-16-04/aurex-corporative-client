@@ -1,3 +1,9 @@
+aurex-corporative-client (0.60) trusty; urgency=medium
+
+  * Removed references to deprecated smbmount utility
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sat, 30 Aug 2014 17:26:40 +0200
+
 aurex-corporative-client (0.50) trusty; urgency=medium
 
   * Source package renamed
