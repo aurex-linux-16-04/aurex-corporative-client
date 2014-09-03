@@ -1,3 +1,9 @@
+aurex-corporative-client (0.61) trusty; urgency=medium
+
+  * Fixed a typo in autofs configuration files path
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 03 Sep 2014 16:18:36 +0200
+
 aurex-corporative-client (0.60) trusty; urgency=medium
 
   * Removed references to deprecated smbmount utility
