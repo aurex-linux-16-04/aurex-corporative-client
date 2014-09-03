@@ -1,6 +1,8 @@
 aurex-corporative-client (0.61) trusty; urgency=medium
 
   * Fixed a typo in autofs configuration files path
+  * Updated java jdk depends for papercut client
+  * nscd removed from depends
 
  -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 03 Sep 2014 16:18:36 +0200
 
