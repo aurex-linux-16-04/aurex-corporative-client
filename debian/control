@@ -37,7 +37,7 @@ Description: Metapackage for CIPFP Ausias March corporative intranet clients
 
 Package: ausias-papercut-client
 Architecture: all
-Depends: ${misc:Depends}, cifs-utils, ausias-cc-default-settings, openjdk-6-jre|sun-java6-bin, openprinting-ppds
+Depends: ${misc:Depends}, cifs-utils, ausias-cc-default-settings, openjdk-7-jre|oracle-java7-installer|oracle-java8-installer, openprinting-ppds
 Description: CIPFP Ausias March intranet custom papercut client installer
  This package installs and configures papercut client to print in
  CIPFP Ausias March intranet environment.
