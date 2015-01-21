@@ -30,7 +30,7 @@ Description: Aurex printer configuration utility
 
 Package: ausias-cc-default-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota, aurex-smbpasswd, aurex-passwd, aurex-gtk-bookmarks-settings, ausias-cc-extra-settings
+Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota, aurex-smbpasswd, aurex-passwd, aurex-gtk-bookmarks-settings, ausias-cc-extra-settings, ausias-fusioninventory-agent
 Description: Metapackage for CIPFP Ausias March corporative intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
@@ -68,4 +68,10 @@ Description: Additional metapackage for CIPFP Ausias March intranet corporative 
  This metapackage installs additional packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
 
+Package: ausias-fusioninventory-agent
+Architecture: all
+Depends: ${misc:Depends}, fusion-inventory, aurex-transmute
+Description: CIPFP Ausias March intranet installation for fusioninventory
+ The package installs fusioninventory-agent and specific custom configuration
+ for the intranet of the CIPFP AUsias March.
 

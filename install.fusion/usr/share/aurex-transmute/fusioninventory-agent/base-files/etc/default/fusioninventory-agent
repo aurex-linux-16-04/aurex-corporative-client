@@ -1,0 +1,2 @@
+MODE=daemon
+DAEMON_OPTS="-d -s http://cloud.ausiasmarch.net/glpi/plugins/fusioninventory/front/plugin_fusioninventory.communication.php"

@@ -1,3 +1,9 @@
+aurex-corporative-client (0.64) trusty; urgency=medium
+
+  * Added new binary package 'ausias-fusioninventory-agent'
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 21 Jan 2015 11:55:27 +0100
+
 aurex-corporative-client (0.63) trusty; urgency=medium
 
   * Remove sources.list changes until local mirror in
