@@ -1,3 +1,9 @@
+aurex-corporative-client (0.65) trusty; urgency=medium
+
+  * Fixed depends
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 23 Jan 2015 10:35:32 +0100
+
 aurex-corporative-client (0.64) trusty; urgency=medium
 
   * Added new binary package 'ausias-fusioninventory-agent'
