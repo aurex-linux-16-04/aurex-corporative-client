@@ -1,3 +1,9 @@
+aurex-corporative-client (0.66) trusty; urgency=medium
+
+  * ausias-fusioninventory-agent: fixed name of debian files
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 24 Feb 2015 16:22:24 +0100
+
 aurex-corporative-client (0.65) trusty; urgency=medium
 
   * Fixed depends
