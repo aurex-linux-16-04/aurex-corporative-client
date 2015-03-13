@@ -1,3 +1,12 @@
+aurex-corporative-client (0.67) trusty; urgency=medium
+
+  * Added new binary metapackage: aurex-cc-auth-i386 to force
+    installation of i386 ldap components ro run corectly
+    acrobat reader when ldap auth is enabled in a amd64 architecture
+    (acroread is available only for i386 architecture)
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 13 Mar 2015 12:24:36 +0100
+
 aurex-corporative-client (0.66) trusty; urgency=medium
 
   * ausias-fusioninventory-agent: fixed name of debian files

@@ -15,6 +15,14 @@ Description: Aurex Corporative Client pam and nsswitch configuration
  The default configuration allows an aurex desktop (and may be a plain
  ubuntu desktop too ;-) ) to validate login against a Corporative server.
 
+Package: aurex-cc-auth-i386
+Architecture: i386
+Depends: ${misc:Depends}, ldap-auth-client
+Description: ldap components for i386 architecture (required for acroread)
+ This metapackage installs ldap components for i386 architecture. This libraries
+ are required to run correctly acrobat reader when ldap auth is enabled in a 
+ amd64 architecture (acroread is available only for i386 architecture)
+
 Package: aurex-cc-mount
 Architecture: all
 Depends: ${misc:Depends}, aurex-transmute, cifs-utils, aurex-fs-utils (>= 0.6), libpam-mount
