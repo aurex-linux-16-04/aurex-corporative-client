@@ -1,3 +1,9 @@
+aurex-corporative-client (0.68) trusty; urgency=medium
+
+  * added aurex-cc-auth-i386 as depends in aurex-cc-auth
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 13 Mar 2015 12:39:42 +0100
+
 aurex-corporative-client (0.67) trusty; urgency=medium
 
   * Added new binary metapackage: aurex-cc-auth-i386 to force
