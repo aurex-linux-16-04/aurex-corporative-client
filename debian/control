@@ -16,8 +16,8 @@ Description: Aurex Corporative Client pam and nsswitch configuration
  ubuntu desktop too ;-) ) to validate login against a Corporative server.
 
 Package: aurex-cc-auth-i386
-Architecture: i386
-Depends: ${misc:Depends}, libpam-ldap, libnss-ldap
+Architecture: all
+Depends: ${misc:Depends}, libpam-ldap:i386, libnss-ldap:i386
 Description: ldap components for i386 architecture (required for acroread)
  This metapackage installs ldap components for i386 architecture. This libraries
  are required to run correctly acrobat reader when ldap auth is enabled in a 

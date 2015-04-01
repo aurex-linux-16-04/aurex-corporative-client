@@ -1,3 +1,9 @@
+aurex-corporative-client (0.69) trusty; urgency=medium
+
+  * aurex-cc-auth-i386 architecture changed to all
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 01 Apr 2015 13:52:12 +0200
+
 aurex-corporative-client (0.68) trusty; urgency=medium
 
   * added aurex-cc-auth-i386 as depends in aurex-cc-auth
