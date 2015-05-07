@@ -11,3 +11,6 @@
 <volume mountpoint="~/Departamentos" path="Departamentos" server="satanas" pgrp="CONSERGERIA" fstype="smbfs" />
 
 <volume mountpoint="~/Direccion" path="direccion" server="satanas" sgrp="pr_direccion" fstype="smbfs" />
+
+<volume mountpoint="~/PDF-imprimir" path="PDF2Conserjeria" server="jonas" pgrp="CONSERGERIA" fstype="smbfs" />
+
