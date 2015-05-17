@@ -1,6 +1,6 @@
-/net/satanas/export/mirror	/datos/mirror
-/net/satanas/export/isos	/datos/isos
-/net/satanas/export/msdn	/datos/msdn
-/net/satanas/export/netcache	/datos/netcache
-/net/satanas/export/ausiasbox	/datos/ausiasbox
+/net/jonas/export/mirror	/datos/mirror
+/net/jonas/export/isos		/datos/isos
+/net/jonas/export/msdni		/datos/msdn
+/net/jonas/export/netcache	/datos/netcache
+/net/jonas/export/ausiasbox	/datos/ausiasbox
 

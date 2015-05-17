@@ -1,3 +1,10 @@
+aurex-corporative-client (0.73) trusty; urgency=medium
+
+  * ausias-cc-default-settings: replaced satanas by jonas in libpam-mount and
+    in /datos/ links (for autofs)
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 18 May 2015 01:08:08 +0200
+
 aurex-corporative-client (0.72) trusty; urgency=medium
 
   * Dummy version upgrade
