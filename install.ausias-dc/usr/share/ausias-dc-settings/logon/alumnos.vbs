@@ -24,7 +24,7 @@ Loop
 ' Mapeado de la unidad F particular de cada usuario
 
 oNet.RemoveNetworkDrive "S:"
-oNet.MapNetworkDrive "S:", "\\FSserver\" & sUser
+oNet.MapNetworkDrive "S:", "\\jonas\" & sUser
   
 Set WshShell = WScript.CreateObject("WScript.Shell")
 WshShell.Run "\\fsserver\PCClient\win\pc-client-local-cache.exe -silent"
@@ -34,7 +34,7 @@ WshShell.Run "\\fsserver\PCClient\win\pc-client-local-cache.exe -silent"
 Set WshNetwork = CreateObject("WScript.Network")
 WshNetwork.SetDefaultPrinter "ClickControl"
 
-MsgBox "Benvingut a ClickControl DS/Bienvenido a ClickControl DS" & Chr(13) & _
-"=================================" & Chr(13) & _
-">>>> Visita la web:  www.dismacofax.com <<<<",vbInformation,"CLICK-CONTROL By DISMACO FAX"
+' MsgBox "Benvingut a ClickControl DS/Bienvenido a ClickControl DS" & Chr(13) & _
+' "=================================" & Chr(13) & _
+' ">>>> Visita la web:  www.dismacofax.com <<<<",vbInformation,"CLICK-CONTROL By DISMACO FAX"
 

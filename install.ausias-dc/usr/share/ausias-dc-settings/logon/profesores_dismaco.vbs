@@ -1,5 +1,4 @@
-Dim oNet, sUser, startTime, sUserDomain
-Dim ObjGroupDict ' Dictionary of groups to which the user belongs
+Dim oNet, sUser, startTime
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 On Error Resume Next
 
@@ -20,28 +19,18 @@ Do While sUser = ""
    Wscript.Sleep 500
    sUser = oNet.UserName
 Loop
-sUserDomain=oNet.UserDomain
-
-' Read the user's account "Member Of" tab info across the network
-' once into a dictionary object. 
-
-Set ObjGroupDict = CreateMemberOfObject(sUserDomain, sUser)
-If MemberOf(ObjGroupDict, "pr_jefatura") Then
-	oNet.RemoveNetworkDrive "J:"
-	oNet.MapNetworkDrive "J:", "\\jonas\jefatura"
-End If
 
 
 ' Mapeado de la unidad F particular de cada usuario
 
 oNet.RemoveNetworkDrive "S:"
-oNet.MapNetworkDrive "S:", "\\jonas\" & sUser
+oNet.MapNetworkDrive "S:", "\\satanas\" & sUser
 
 oNet.RemoveNetworkDrive "T:"
-oNet.MapNetworkDrive "T:", "\\jonas\Departamentos" 
+oNet.MapNetworkDrive "T:", "\\satanas\Departamentos" 
 
 oNet.RemoveNetworkDrive "U:"
-oNet.MapNetworkDrive "U:", "\\jonas\Publico"
+oNet.MapNetworkDrive "U:", "\\satanas\Publico"
 
 'oNet.RemoveNetworkDrive "Y:"
 'oNet.MapNetworkDrive "Y:", "\\CCserver\ScanRepro"
@@ -99,50 +88,6 @@ WshShell.Run "\\fsserver\PCClient\win\pc-client-local-cache.exe -silent"
 'Else
 '		WshNetwork.SetDefaultPrinter "\\CCServer\Fotocop_Profesores"
 'End If	
-
-' Establece la impresora por defecto
-'WshNetwork.SetDefaultPrinter "ClickControl"	
+WshNetwork.SetDefaultPrinter "ClickControl"	
 	
-Function MemberOf(ObjDict, strKey)
-' Given a Dictionary object containing groups to which the user
-' is a member of and a group name, then returns True if the group
-' is in the Dictionary else return False. 
-'
-' Inputs:
-' strDict - Input, Name of a Dictionary object
-' strKey - Input, Value being searched for in
-' the Dictionary object
-' Sample Usage:
-'
-' If MemberOf(ObjGroupDict, "DOMAIN ADMINS") Then
-' wscript.echo "Is a member of Domain Admins."
-' End If
-'
-'
-	MemberOf = CBool(ObjGroupDict.Exists(strKey))
-
-End Function
-
-Function CreateMemberOfObject(strDomain, strUserName)
-' Given a domain name and username, returns a Dictionary
-' object of groups to which the user is a member of.
-'
-' Inputs:
-'
-' strDomain - Input, NT Domain name
-' strUserName - Input, NT username
-'
-	Dim objUser, objGroup
-
-	Set CreateMemberOfObject = CreateObject("Scripting.Dictionary")
-	CreateMemberOfObject.CompareMode = vbTextCompare
-	Set objUser = GetObject("WinNT://" _
-	& strDomain & "/" _
-	& strUserName & ",user")
-	For Each objGroup In objUser.Groups
-		CreateMemberOfObject.Add objGroup.Name, "-"
-	Next
-	Set objUser = Nothing
-
-End Function
 
