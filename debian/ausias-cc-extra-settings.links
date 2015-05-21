@@ -1,6 +1,6 @@
-/net/jonas/export/mirror	/datos/mirror
-/net/jonas/export/isos		/datos/isos
-/net/jonas/export/msdni		/datos/msdn
-/net/jonas/export/netcache	/datos/netcache
-/net/jonas/export/ausiasbox	/datos/ausiasbox
+/glfs/bruna/workdata/mirror	/datos/mirror
+/glfs/bruna/workdata/isos	/datos/isos
+/glfs/bruna/workdata/msdn	/datos/msdn
+/glfs/bruna/workdata/netcache	/datos/netcache
+/glfs/bruna/workdata/ausiasbox	/datos/ausiasbox
 
