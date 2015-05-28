@@ -1,3 +1,12 @@
+aurex-corporative-client (0.74) trusty; urgency=medium
+
+  * add gluster support to autofs under /glfs directory (/etc/auto.glfs, based in auto.net)
+  * change common network folders (isos, ausiasbox,...) from nfs to glusterfs
+  * diversion of autofs configuration file is not longer necessary because current autofs 
+    version allows custom files in /etc/auto.master.d
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 28 May 2015 19:09:17 +0200
+
 aurex-corporative-client (0.73) trusty; urgency=medium
 
   * ausias-cc-default-settings: replaced satanas by jonas in libpam-mount and
