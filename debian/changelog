@@ -1,3 +1,9 @@
+aurex-corporative-client (0.76) trusty; urgency=medium
+
+  * change mirror's path 
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 16 Jun 2015 16:55:42 +0200
+
 aurex-corporative-client (0.75) trusty; urgency=medium
 
   * change ausiasbox's link to new network location 
