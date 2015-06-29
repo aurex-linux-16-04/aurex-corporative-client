@@ -1,3 +1,9 @@
+aurex-corporative-client (0.77) trusty; urgency=medium
+
+  * new binary ausias-cc-image-server to be installed in the classroom's server
+
+ -- Sandra Villanueva Gavino <savilga@gmail.com>  Mon, 29 Jun 2015 13:09:22 +0200
+
 aurex-corporative-client (0.76) trusty; urgency=medium
 
   * change mirror's path 
