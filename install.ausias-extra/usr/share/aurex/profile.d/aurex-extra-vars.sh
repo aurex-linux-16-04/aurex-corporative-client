@@ -2,3 +2,5 @@
 #AUREX_FORCEMIRROR="file:///datos/mirror/aurex/"
 UBUNTU_FORCEMIRROR="http://mirror/mirror/ubuntu/"
 AUREX_FORCEMIRROR="http://mirror/mirror/aurex/"
+UBUNTU_FORCEPARTNER="http://mirror/mirror/ubuntu-partner/"
+UBUNTU_FORCEEXTRAS="http://mirror/mirror/ubuntu-extras/"

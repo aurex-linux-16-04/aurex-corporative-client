@@ -1,3 +1,9 @@
+aurex-corporative-client (0.79) trusty; urgency=medium
+
+  * Fixed local mirror settings for Ubuntu partner and extras
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 30 Jun 2015 13:33:28 +0200
+
 aurex-corporative-client (0.78) trusty; urgency=medium
 
   * Enable sources.list changes (again) to use local mirror
