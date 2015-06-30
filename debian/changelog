@@ -1,3 +1,10 @@
+aurex-corporative-client (0.78) trusty; urgency=medium
+
+  * Enable sources.list changes (again) to use local mirror
+    via http
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 30 Jun 2015 10:54:16 +0200
+
 aurex-corporative-client (0.77) trusty; urgency=medium
 
   * new binary ausias-cc-image-server to be installed in the classroom's server
