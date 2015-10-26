@@ -91,3 +91,14 @@ Description: Creates a new local folder to store pc client images
  This package creates and modifies permissions over "/datos/images" 
  in order to use it as storage backend for disk imaging/cloning programs such as 
  CLonezilla over ssh service.
+
+Package: aurex-cc-switch
+Architecture: all
+Depends: ${misc:Depends}, aurex-cc-auth (>= 0.8), aurex-cc-mount (>= 0.8)
+Description: CIPFP Ausias March intranet installation for fusioninventory
+ This package allows to switch on/off all corporative client settings
+ with a simple script in order easy to change between both networked and
+ standalone workstation modes (for instance, when booting corporative clients
+ without network connection)
+
+

@@ -1,3 +1,10 @@
+aurex-corporative-client (0.8) trusty; urgency=medium
+
+  * Added new binary package aurex-cc-switch
+  * New options "enabled/disabled" incorporated to most of the current scripts
+
+ -- Luis <lgarcia@lenovo>  Mon, 26 Oct 2015 12:55:41 +0100
+
 aurex-corporative-client (0.79) trusty; urgency=medium
 
   * Fixed local mirror settings for Ubuntu partner and extras

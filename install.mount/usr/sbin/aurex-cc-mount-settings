@@ -21,11 +21,11 @@
 
 
 case "$1" in
-	remove)
+	remove|disable)
 		rm -f /var/lib/aurex-cc-mount-settings/pam_mount.conf.xml /etc/aurex-fs-utils/umount.d/aurex-cc-mount-settings.conf
 		aurex-transmute --module=cc-mount untransmute || true
 		;;
-	update)
+	update|enable)
 		MOUNT_CFG_DIR="/etc/aurex-cc/mounts.d/"
 		TOP_FILE=/usr/share/aurex-cc-mount/pam_mount.conf.xml.top
 		BOTTOM_FILE=/usr/share/aurex-cc-mount/pam_mount.conf.xml.bottom

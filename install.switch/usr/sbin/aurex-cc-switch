@@ -1,0 +1,77 @@
+#!/bin/sh
+# -------
+# File:        aurex-cc-switch
+# Description: Switch between corporative/standalone workstation
+# Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along 
+# with this program; if not, write to the Free Software Foundation, Inc., 
+# 51 Franklin St, Fifth Floor, Boston MA 02110-1301 USA
+# --------
+
+# funcs
+# -----
+
+die(){
+	echo "$1" >&2
+	exit 1
+}
+
+usage(){
+	die "Usage: $(basename "$0") [options] {enable|disable}\n\
+       Options: --force"
+}
+
+do_enable(){
+	rc=0
+	if [ ! -e "$FLAG_FILE" ] && [ -z "$FORCE" ] ; then
+		return 0
+	fi
+	aurex-cc-auth-settings enable || rc=$?
+	[ $rc -ne 0] || aurex-cc-mount-settings enable || rc=$?
+	[ $rc -ne 0 ] || rm -f "$FLAG_FILE"
+	return $rc
+}
+
+do_disable(){
+	rc=0
+	aurex-cc-auth-settings disable || rc=$?
+	[ $rc -ne 0] || aurex-cc-mount-settings disable || rc=$?
+	[ $rc -ne 0 ] || touch "$FLAG_FILE"
+	return $rc
+}
+# do some initial tests
+
+[ $(id -u) -eq 0 ] || die "You must be root my friend"
+
+FORCE=""
+if [ "$1" = "--force" ] ; then
+	FORCE="Y"
+	shift
+fi
+
+FLAG_FILE="/var/lib/aurex-cc-switch/disabled"
+ACTION="$1"
+rc=0
+case "$ACTION" in
+	enable)
+		do_enable || rc=$?
+		;;
+	disable)
+		do_disable || rc=$?
+		;;
+	*)
+		usage
+		;;
+esac
+
