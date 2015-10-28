@@ -2,7 +2,7 @@
 
 case "$1" in
     configure)
-	/usr/share/ausias-papercut-client/ausias-papercut install || true
+	ausias-papercut install || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
     	;;

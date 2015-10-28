@@ -3,10 +3,27 @@
 TARGET_DIR="/var/lib/papercut-client"
 
 usage(){
-	echo "Usage: $(basename "$0") [install|remove]"
+	echo "Usage: $(basename "$0") [install|remove|enable|disable]"
+}
+
+do_enable(){
+	if [ -d "$TARGET_DIR" ] && [ -x "$TARGET_DIR/pc-client-linux.sh" ] && [ -d "$TARGET_DIR/lib-ext" ] && [ -d "$TARGET_DIR/lib" ] ; then
+		sed -e "s%_@_TARGET_DIR_@_%$TARGET_DIR%g" /usr/share/ausias-papercut-client/papercut-client.sh.in > /etc/profile.d/papercut-client.sh
+		chmod 755 "/etc/profile.d/papercut-client.sh"
+	fi
+}
+
+do_disable(){
+	rm -f /etc/profile.d/papercut-client.sh
 }
 
 case "$1" in 
+	disable)
+		do_disable
+		;;
+	enable)
+		do_enable
+		;;
 	install)
 		PCCLIENT_SHARE="//fsserver/pcclient"
 		TMP_DIR="$(mktemp -d)"
@@ -21,8 +38,7 @@ case "$1" in
 			# bypass broken link ...
 			cp -r $CLIENT_DIR/* $TARGET_DIR || true
 			chmod 755 "$TARGET_DIR/pc-client-linux.sh"
-			sed -e "s%_@_TARGET_DIR_@_%$TARGET_DIR%g" /usr/share/ausias-papercut-client/papercut-client.sh.in > /etc/profile.d/papercut-client.sh
-			chmod 755 "/etc/profile.d/papercut-client.sh"
+			do_enable
 			umount "$TMP_DIR" || true
 			rmdir "$TMP_DIR" || true
 			echo "Papercut client successfully installed"

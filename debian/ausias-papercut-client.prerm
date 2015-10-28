@@ -19,7 +19,7 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-	/usr/share/ausias-papercut-client/ausias-papercut remove || true
+	ausias-papercut remove || true
     ;;
 
     failed-upgrade)
