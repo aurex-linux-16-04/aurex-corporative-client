@@ -38,7 +38,7 @@ Description: Aurex printer configuration utility
 
 Package: ausias-cc-default-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota, aurex-smbpasswd, aurex-passwd, aurex-gtk-bookmarks-settings, ausias-cc-extra-settings, ausias-fusioninventory-agent
+Depends: ${misc:Depends}, aurex-cc-auth, aurex-cc-mount, aurex-pam-quota, aurex-smbpasswd, aurex-passwd, aurex-gtk-bookmarks-settings, ausias-cc-extra-settings, ausias-fusioninventory-agent, aurex-cc-switch
 Description: Metapackage for CIPFP Ausias March corporative intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
@@ -95,12 +95,13 @@ Description: Creates a new local folder to store pc client images
 Package: aurex-cc-autofs
 Architecture: all
 Depends: ${misc:Depends}, aurex-fs-utils (>= 0.7), autofs (>= 5.0.7-3ubuntu3.1), aurex-transmute (>= 14.04.5)
+Conflicts: ausias-cc-extra-settings (<< 0.80)
 Description: aurex autofs management
  This package installs the required files to manage autofs in aurex
 
 Package: aurex-cc-switch
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth (>= 0.8), aurex-cc-mount (>= 0.8), aurex-cc-autofs, ausias-papercut-client (>=0.8)
+Depends: ${misc:Depends}, aurex-cc-auth (>= 0.80), aurex-cc-mount (>= 0.80), aurex-cc-autofs, ausias-papercut-client (>= 0.80)
 Description: Tool to switch corporative client settings
  This package allows to switch on/off all corporative client settings
  with a simple script in order easy to change between both networked and
