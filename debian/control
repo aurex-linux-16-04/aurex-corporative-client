@@ -101,7 +101,7 @@ Description: aurex autofs management
 
 Package: aurex-cc-switch
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth (>= 0.80), aurex-cc-mount (>= 0.80), aurex-cc-autofs, ausias-papercut-client (>= 0.80)
+Depends: ${misc:Depends}, aurex-cc-auth (>= 0.80), aurex-cc-mount (>= 0.80), aurex-cc-autofs, ausias-papercut-client (>= 0.80), aurex-unplugged-theme
 Description: Tool to switch corporative client settings
  This package allows to switch on/off all corporative client settings
  with a simple script in order easy to change between both networked and

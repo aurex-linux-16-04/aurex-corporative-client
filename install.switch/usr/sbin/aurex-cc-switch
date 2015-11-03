@@ -41,6 +41,7 @@ do_enable(){
 	[ $rc -ne 0] || aurex-cc-mount-settings enable || rc=$?
 	[ $rc -ne 0] || aurex-cc-autofs-settings enable || rc=$?
 	[ $rc -ne 0] || ausias-papercut enable || rc=$?
+	[ $rc -ne 0] || aurex-unplugged-theme enable || rc=$?
 	[ $rc -ne 0 ] || rm -f "$FLAG_FILE"
 	return $rc
 }
@@ -51,6 +52,7 @@ do_disable(){
 	[ $rc -ne 0] || aurex-cc-mount-settings disable || rc=$?
 	[ $rc -ne 0] || aurex-cc-autofs-settings disable || rc=$?
 	[ $rc -ne 0] || ausias-papercut disable || rc=$?
+	[ $rc -ne 0] || aurex-unplugged-theme disable || rc=$?
 	[ $rc -ne 0 ] || touch "$FLAG_FILE"
 	return $rc
 }
