@@ -1,3 +1,9 @@
+aurex-corporative-client (0.81) trusty; urgency=medium
+
+  * Minor fixes
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 03 Nov 2015 19:13:39 +0100
+
 aurex-corporative-client (0.80) trusty; urgency=medium
 
   * Added new binary package aurex-cc-switch

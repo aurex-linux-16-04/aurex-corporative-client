@@ -38,10 +38,10 @@ do_enable(){
 		return 0
 	fi
 	aurex-cc-auth-settings enable || rc=$?
-	[ $rc -ne 0] || aurex-cc-mount-settings enable || rc=$?
-	[ $rc -ne 0] || aurex-cc-autofs-settings enable || rc=$?
-	[ $rc -ne 0] || ausias-papercut enable || rc=$?
-	[ $rc -ne 0] || aurex-unplugged-theme enable || rc=$?
+	[ $rc -ne 0 ] || aurex-cc-mount-settings enable || rc=$?
+	[ $rc -ne 0 ] || aurex-cc-autofs-settings enable || rc=$?
+	[ $rc -ne 0 ] || ausias-papercut enable || rc=$?
+	[ $rc -ne 0 ] || aurex-unplugged-theme disable || true
 	[ $rc -ne 0 ] || rm -f "$FLAG_FILE"
 	return $rc
 }
@@ -49,10 +49,10 @@ do_enable(){
 do_disable(){
 	rc=0
 	aurex-cc-auth-settings disable || rc=$?
-	[ $rc -ne 0] || aurex-cc-mount-settings disable || rc=$?
-	[ $rc -ne 0] || aurex-cc-autofs-settings disable || rc=$?
-	[ $rc -ne 0] || ausias-papercut disable || rc=$?
-	[ $rc -ne 0] || aurex-unplugged-theme disable || rc=$?
+	[ $rc -ne 0 ] || aurex-cc-mount-settings disable || rc=$?
+	[ $rc -ne 0 ] || aurex-cc-autofs-settings disable || rc=$?
+	[ $rc -ne 0 ] || ausias-papercut disable || rc=$?
+	[ $rc -ne 0 ] || aurex-unplugged-theme enable || true
 	[ $rc -ne 0 ] || touch "$FLAG_FILE"
 	return $rc
 }
