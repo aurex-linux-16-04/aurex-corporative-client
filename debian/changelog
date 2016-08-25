@@ -1,3 +1,9 @@
+aurex-corporative-client (0.82) xenial; urgency=medium
+
+  * WiP for the new classroom model
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 26 Aug 2016 01:48:20 +0200
+
 aurex-corporative-client (0.81) trusty; urgency=medium
 
   * Minor fixes

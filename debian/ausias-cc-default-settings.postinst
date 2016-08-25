@@ -6,8 +6,8 @@ case "$1" in
 	cp /usr/share/ausias-cc-default-settings/20_netadmins /etc/sudoers.d/
         chmod 0440 /etc/sudoers.d/20_netadmins
 
-	# generate /var/lib/ausias-cc-default-settings/ldap-auth.cfg, just a cp at this moment ...
-	cp /usr/share/ausias-cc-default-settings/ldap-auth.cfg /var/lib/ausias-cc-default-settings/ldap-auth.cfg
+	## generate /var/lib/ausias-cc-default-settings/ldap-auth.cfg, just a cp at this moment ...
+	#cp /usr/share/ausias-cc-default-settings/ldap-auth.cfg /var/lib/ausias-cc-default-settings/ldap-auth.cfg
 	aurex-transmute --module=ausias-cc transmute || true
 	/usr/share/aurex-cc-auth/aurex-ldap-auth-config configure || true
 	aurex-cc-auth-settings update || true
