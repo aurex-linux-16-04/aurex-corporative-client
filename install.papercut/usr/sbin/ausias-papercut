@@ -25,7 +25,7 @@ case "$1" in
 		do_enable
 		;;
 	install)
-		PCCLIENT_SHARE="//fsserver/pcclient"
+		PCCLIENT_SHARE="//xwarrior/pcclient"
 		TMP_DIR="$(mktemp -d)"
 		CLIENT_DIR="$TMP_DIR/linux"
 		# try to mount pcclient resource

@@ -5,9 +5,20 @@ Maintainer: Luis Antonio Garcia Gisbert <luisgg@gmail.com>
 Build-Depends: debhelper (>= 7.0), gettext
 Standards-Version: 3.9.3
 
+Package: aurex-cc-sssd
+Architecture: all
+Depends: ${misc:Depends}, aurex-transmute, sssd, aurex-atspi-fix
+Conflicts: aurex-cc-auth
+Description: Aurex Corporative Client sssd based
+ This package will install all required packages for an ldap client.
+ It uses sssd to provide ldap validation with cedentials cache
+ The default configuration allows an aurex desktop (and may be a plain
+ ubuntu desktop too ;-) ) to validate login against a Corporative server.
+
 Package: aurex-cc-auth
 Architecture: all
 Depends: ${misc:Depends}, aurex-transmute, ldap-auth-client, libpam-ldap, ldap-auth-config, aurex-atspi-fix, aurex-cc-auth-i386
+Conflicts: aurex-cc-sssd
 Description: Aurex Corporative Client pam and nsswitch configuration 
  This package will install all required packages for an ldap client.
  It uses the auth-client-config and pam-auth-update tools to modify
@@ -116,7 +127,7 @@ Description: aurex autofs management
 
 Package: aurex-cc-switch
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-auth (>= 0.80), aurex-cc-mount (>= 0.80), aurex-cc-autofs, ausias-papercut-client (>= 0.80), aurex-unplugged-theme
+Depends: ${misc:Depends}, aurex-cc-sssd, aurex-cc-autofs, ausias-papercut-client (>= 0.80), aurex-unplugged-theme
 Description: Tool to switch corporative client settings
  This package allows to switch on/off all corporative client settings
  with a simple script in order easy to change between both networked and

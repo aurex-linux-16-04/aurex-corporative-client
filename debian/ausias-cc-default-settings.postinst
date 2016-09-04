@@ -11,7 +11,7 @@ case "$1" in
 	aurex-transmute --module=ausias-cc transmute || true
 	/usr/share/aurex-cc-auth/aurex-ldap-auth-config configure || true
 	aurex-cc-auth-settings update || true
-	aurex-cc-mount-settings update || true
+	# aurex-cc-mount-settings update || true
 	[ ! -x /usr/lib/lightdm/lightdm-set-defaults ] || /usr/lib/lightdm/lightdm-set-defaults -i true || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)

@@ -37,8 +37,8 @@ do_enable(){
 	if [ ! -e "$FLAG_FILE" ] && [ -z "$FORCE" ] ; then
 		return 0
 	fi
-	aurex-cc-auth-settings enable || rc=$?
-	[ $rc -ne 0 ] || aurex-cc-mount-settings enable || rc=$?
+	aurex-cc-sssd-settings enable || rc=$?
+#	[ $rc -ne 0 ] || aurex-cc-mount-settings enable || rc=$?
 	[ $rc -ne 0 ] || aurex-cc-autofs-settings enable || rc=$?
 	[ $rc -ne 0 ] || ausias-papercut enable || rc=$?
 	[ $rc -ne 0 ] || aurex-unplugged-theme disable || true
