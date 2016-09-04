@@ -1,0 +1,107 @@
+#!/bin/sh
+#
+# The environment variables passed by pam-script onto the script
+# (all will exist but some may be null if not applicable):
+#	PAM_SERVICE	- the application that's invoking the PAM stack
+#	PAM_TYPE	- the module-type (e.g. auth,account,session,password)
+#	PAM_USER	- the user being authenticated into
+#	PAM_RUSER	- the remote user, the user invoking the application
+#	PAM_RHOST	- remote host
+#	PAM_TTY		- the controlling tty
+#	PAM_AUTHTOK	- password in readable text
+#
+#echo $stamp $script $PAM_SERVICE $PAM_TYPE				\
+#	user=$PAM_USER ruser=$PAM_RUSER rhost=$PAM_RHOST		\
+#	tty=$PAM_TTY							\
+#	args=["$@"]							\
+#	>> $LOGFILE
+#chmod 666 $LOGFILE > /dev/null 2>&1
+
+is_network_user(){
+	PASS_USER="$1"
+	NUM_USERS=$(getent passwd "$PASS_USER" |wc -l)
+	[ $NUM_USERS -gt 0 ] || return 1
+	NUM_LOCAL_USERS=$(grep "^$PASS_USER:" /etc/passwd |wc -l)
+	[ $NUM_LOCAL_USERS -lt $NUM_USERS ] || return 1
+	return 0
+}
+
+do_link(){
+	ln -s "$1" "$2"
+	chown -h $PAM_USER:$PGRID "$2"
+}
+
+do_link_dep(){
+	do_link "/glfs/bruna/userdata/departamentos" "$1"
+}
+
+do_link_pub(){
+	do_link "/glfs/bruna/userdata/publico" "$1"
+}
+
+do_link_dir(){
+	do_link "/glfs/bruna/userdata/direccion" "$1"
+}
+
+do_link_jef(){
+	do_link "/glfs/bruna/userdata/jefatura" "$1"
+}
+
+do_link_pdf(){
+	do_link "/glfs/bruna/workdata/PDF2Conserjeria" "$1"
+}
+
+VALID_SERVICES_LIST="lightdm"
+VALID_TYPES_LIST="session"
+
+TEACHERS_ID="501"
+STUDENTS_ID="502"
+SECRETAR_ID="503"
+CONSERJE_ID="504"
+
+if [ -z "$PAM_SERVICE" ] || [ -z "$PAM_TYPE" ] || [ -z "$PAM_USER" ] || ! is_network_user "$PAM_USER" ; then
+	exit 0
+fi
+
+if echo " $VALID_SERVICES_LIST " |grep -q " $PAM_SERVICE " && echo " $VALID_TYPES_LIST " |grep -q " $PAM_TYPE " ; then
+	HDIR="$(getent passwd $PAM_USER |cut -f 6 -d :)"
+	GLIST="$(groups $PAM_USER |cut -d : -f 2 |tr "[:lower:]" "[:upper:]")"
+	PGRID="$(getent passwd $PAM_USER |cut -f 4 -d :)"
+	DOC_LINK="$HDIR/MisDocumentos_Servidor"
+	DEP_LINK="$HDIR/Departamentos"
+	PUB_LINK="$HDIR/Publico_Servidor"
+
+	DIR_LINK="$HDIR/Direccion"
+	JEF_LINK="$HDIR/Jefatura"
+	PDF_LINK="$HDIR/PDF-imprimir"
+
+	case "$PGRID" in
+		501)
+			# PROFESORES
+			[ -h "$DOC_LINK" ] || do_link "/glfs/bruna/userdata/usuarios/profesores/$PAM_USER" "$DOC_LINK" 
+			[ -h "$DEP_LINK" ] || do_link_dep "$DEP_LINK" 
+			[ -h "$PUB_LINK" ] || do_link_pub "$PUB_LINK"
+			;;
+		503)
+			# SECRETARIA
+			[ -h "$DOC_LINK" ] || do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
+			[ -h "$DEP_LINK" ] || do_link_dep "$DEP_LINK" 
+			[ -h "$PUB_LINK" ] || do_link_pub "$PUB_LINK" 
+			;;
+
+		504)
+			# CONSERJERIA
+			[ -h "$DOC_LINK" ] || do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
+			[ -h "$DEP_LINK" ] || do_link_dep "$DEP_LINK" 
+			[ -h "$PUB_LINK" ] || do_link_pub "$PUB_LINK" 
+			[ -h "$PUB_LINK" ] || do_link_pdf "$PDF_LINK" 
+			;;
+	esac
+	if echo " $GLIST " |grep -q " PR_DIRECCION " ; then
+		[ -h "$DIR_LINK" ] || do_link_dir "$DIR_LINK" 
+	fi
+	if echo " $GLIST " |grep -q " PR_JEFATURA " ; then
+		[ -h "$JEF_LINK" ] || do_link_dir "$JEF_LINK" 
+	fi
+	
+exit 0

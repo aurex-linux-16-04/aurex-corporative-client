@@ -1,3 +1,9 @@
+aurex-corporative-client (0.83) xenial; urgency=medium
+
+  * Updated ausias-cc-default-settings, aurex-cc-netshares, aurex-passwd and aurex-samba4-passwd
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 04 Sep 2016 14:32:53 +0200
+
 aurex-corporative-client (0.82) xenial; urgency=medium
 
   * WiP for the new classroom model

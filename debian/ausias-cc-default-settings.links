@@ -1,6 +1,5 @@
-/usr/share/ausias-cc-default-settings/mounts		/etc/aurex-cc/mounts.d/ausias-cc-default-settings.mounts
-/usr/share/ausias-cc-default-settings/mountpoints	/etc/aurex-cc/mountpoints.d/ausias-cc-default-settings.mountpoints
+/usr/share/ausias-cc-default-settings/netlogon		/usr/share/libpam-script/pam_script_ses_open
+/usr/share/ausias-cc-default-settings/netlogout		/usr/share/libpam-script/pam_script_ses_close
 /usr/share/ausias-cc-default-settings/hosts		/etc/aurex-cc/hosts.d/ausias-cc-default-settings.hosts
 /var/lib/ausias-cc-default-settings/ldap-auth.cfg	/usr/share/aurex-transmute/ausias-cc/preseed/ldap-auth.cfg
-/usr/share/ausias-cc-default-settings/net-passwd	/etc/aurex-passwd/net-passwd
 /usr/share/ausias-cc-default-settings/apparmor-home	/etc/apparmor.d/tunables/home.d/ausias-cc

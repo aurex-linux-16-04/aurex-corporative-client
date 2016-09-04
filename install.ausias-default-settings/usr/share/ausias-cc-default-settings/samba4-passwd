@@ -1,0 +1,2 @@
+#!/bin/sh
+exec aurex-samba4-passwd-wrapper xwarrior AUSIAS "$@"

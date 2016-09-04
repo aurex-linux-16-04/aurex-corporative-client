@@ -1,0 +1,35 @@
+#!/usr/bin/expect
+######################################
+#$
+#$  Automated 'samba4 user password' Script
+#$
+######################################
+#$
+#$ usage example:
+#$
+#$ ./passwd.sh sambahost username oldpassword newpassword
+#$
+######################################
+
+set sambahost [lindex $argv 0]
+set sambadomain [lindex $argv 1]
+set username [lindex $argv 2]
+set oldpass [lindex $argv 3]
+set newpass [lindex $argv 4]
+
+spawn samba-tool user password --ipaddress=$sambahost --username=$username --workgroup=$sambadomain --password=$oldpass
+
+#
+sleep 1
+expect "New Password:"
+send "$newpass\r"
+
+expect "Retype Password:"
+send "$newpass\r"
+
+expect {
+"Changed password OK" exit 0
+}
+exit 1
+
+
