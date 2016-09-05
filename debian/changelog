@@ -1,3 +1,9 @@
+aurex-corporative-client (0.84) xenial; urgency=medium
+
+  * Fixed depends
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 05 Sep 2016 02:23:00 +0200
+
 aurex-corporative-client (0.83) xenial; urgency=medium
 
   * Updated ausias-cc-default-settings, aurex-cc-netshares, aurex-passwd and aurex-samba4-passwd
