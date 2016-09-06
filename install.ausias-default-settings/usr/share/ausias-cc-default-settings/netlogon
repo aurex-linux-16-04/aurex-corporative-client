@@ -103,5 +103,5 @@ if echo " $VALID_SERVICES_LIST " |grep -q " $PAM_SERVICE " && echo " $VALID_TYPE
 	if echo " $GLIST " |grep -q " PR_JEFATURA " ; then
 		[ -h "$JEF_LINK" ] || do_link_dir "$JEF_LINK" 
 	fi
-	
+fi	
 exit 0
