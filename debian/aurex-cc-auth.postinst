@@ -2,7 +2,7 @@
 
 case "$1" in
     configure)
-	aurex-cc-auth-settings update || true
+	aurex-cc-sssd-settings update || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
     	;;
