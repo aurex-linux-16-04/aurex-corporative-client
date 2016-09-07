@@ -1,8 +1,17 @@
 #!/bin/sh
+is_network_user(){
+        PASS_USER="$1"
+        NUM_USERS=$(getent passwd "$PASS_USER" |wc -l)
+        [ $NUM_USERS -gt 0 ] || return 1
+        NUM_LOCAL_USERS=$(grep "^$PASS_USER:" /etc/passwd |wc -l)
+        [ $NUM_LOCAL_USERS -lt $NUM_USERS ] || return 1
+        return 0
+}
+
 
 CMD_OPTIONS=""
 # check if we are logged to domain or local user, if not, set additional options
 #[ "$USER" ] && getent group Domain\ Users |sed -e "s%^.*:%,%;s%$%,%" |grep -q ",${USER}," || CMD_OPTIONS="--neverrequestidentity --user onlyprint"
-[ "$USER" ] && groups $USER |sed -e "s%^.*:%%;s%$% %" |grep -q " Domain Users " || CMD_OPTIONS="--neverrequestidentity --user onlyprint"
+[ "$USER" ] && is_network_user "$USER" || CMD_OPTIONS="--neverrequestidentity --user onlyprint"
 _@_TARGET_DIR_@_/pc-client-linux.sh $CMD_OPTIONS &
 

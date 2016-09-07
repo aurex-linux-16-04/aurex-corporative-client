@@ -7,7 +7,7 @@ usage(){
 }
 
 do_enable(){
-	if [ -d "$TARGET_DIR" ] && [ -x "$TARGET_DIR/pc-client-linux.sh" ] && [ -d "$TARGET_DIR/lib-ext" ] && [ -d "$TARGET_DIR/lib" ] ; then
+	if [ -d "$TARGET_DIR" ] && [ -x "$TARGET_DIR/pc-client-linux.sh" ] && [ -d "$TARGET_DIR/lib" ] ; then
 		sed -e "s%_@_TARGET_DIR_@_%$TARGET_DIR%g" /usr/share/ausias-papercut-client/papercut-client.sh.in > /etc/profile.d/papercut-client.sh
 		chmod 755 "/etc/profile.d/papercut-client.sh"
 	fi
@@ -33,7 +33,7 @@ case "$1" in
 		rc=0
 		mount -t cifs "$PCCLIENT_SHARE" "$TMP_DIR" -o guest || rc=$?
 		# do some additional tests
-		if [ $rc -eq 0 ] && [ -d "$CLIENT_DIR" ] && [ -e "$CLIENT_DIR/pc-client-linux.sh" ] && [ -d "$CLIENT_DIR/lib-ext" ] && [ -d "$CLIENT_DIR/lib" ] ; then
+		if [ $rc -eq 0 ] && [ -d "$CLIENT_DIR" ] && [ -e "$CLIENT_DIR/pc-client-linux.sh" ] && [ -d "$CLIENT_DIR/lib" ] ; then
 			mkdir -p "$TARGET_DIR"
 			# bypass broken link ...
 			cp -r $CLIENT_DIR/* $TARGET_DIR || true
