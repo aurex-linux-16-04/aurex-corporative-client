@@ -2,5 +2,5 @@
 #AUREX_FORCEMIRROR="file:///datos/mirror/aurex/"
 UBUNTU_FORCEMIRROR="http://archive-macrolan/ubuntu/"
 AUREX_FORCEMIRROR="http://mirror/mirror/aurex/"
-UBUNTU_FORCEPARTNER="http://mirror/mirror/ubuntu-partner/"
+UBUNTU_FORCEPARTNER="http://archive.canonical.com/ubuntu/"
 UBUNTU_FORCEEXTRAS="http:/extras.ubuntu.com/ubuntu"
