@@ -12,7 +12,8 @@ key="$1"
 # choose one of the two lines below depending on the NFS version in your
 # environment
 #opts="-fstype=glusterfs"
-opts="-fstype=glusterfs,user_id=0,group_id=0,allow_other,acl"
+opts="-fstype=glusterfs,acl"
+#opts="-fstype=glusterfs,user_id=0,group_id=0,allow_other,acl"
 #opts="-fstype=glusterfs,rw,relatime,user_id=0,group_id=0,allow_other,max_read=131072"
 #opts="-fstype=glusterfs,nodev,nosuid"
 #opts="-fstype=nfs4,hard,intr,nodev,nosuid,async"
