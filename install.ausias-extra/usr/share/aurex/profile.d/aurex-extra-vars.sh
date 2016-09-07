@@ -1,6 +1,6 @@
 #UBUNTU_FORCEMIRROR="file:///datos/mirror/ubuntu/"
 #AUREX_FORCEMIRROR="file:///datos/mirror/aurex/"
-UBUNTU_FORCEMIRROR="http://mirror/mirror/ubuntu/"
+UBUNTU_FORCEMIRROR="http://archive-macrolan/ubuntu/"
 AUREX_FORCEMIRROR="http://mirror/mirror/aurex/"
 UBUNTU_FORCEPARTNER="http://mirror/mirror/ubuntu-partner/"
-UBUNTU_FORCEEXTRAS="http://mirror/mirror/ubuntu-extras/"
+UBUNTU_FORCEEXTRAS="http:/extras.ubuntu.com/ubuntu"
