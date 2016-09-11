@@ -1,3 +1,3 @@
-/usr/share/ausias-cc-default-settings/netlogon		/etc/aurex-pam-script/ses_open.d/ausias-default-mounts
+/usr/share/ausias-cc-default-settings/netlogon		/etc/aurex-pam-script/ses_open.d/20-ausias-default-mounts
 /usr/share/ausias-cc-default-settings/hosts		/etc/aurex-cc/hosts.d/ausias-cc-default-settings.hosts
 /usr/share/ausias-cc-default-settings/apparmor-home	/etc/apparmor.d/tunables/home.d/ausias-cc
