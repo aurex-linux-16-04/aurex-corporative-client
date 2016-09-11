@@ -36,7 +36,7 @@ Description: ldap components for i386 architecture (required for acroread)
 
 Package: aurex-cc-netshares
 Architecture: all
-Depends: ${misc:Depends}, aurex-fs-utils (>= 0.6), libpam-script, aurex-cc-autofs
+Depends: ${misc:Depends}, aurex-fs-utils (>= 0.6), aurex-pam-script, aurex-cc-autofs
 Description: Aurex Corporative Client network shares management
  This is just a metapackage to provide required packages to access
  Corporative glusterfs server shares.
@@ -56,7 +56,7 @@ Description: Aurex printer configuration utility
 
 Package: ausias-cc-default-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-netshares, aurex-cc-sssd, aurex-pam-quota, aurex-samba4-passwd, aurex-passwd, aurex-gtk-bookmarks-settings, ausias-cc-extra-settings, ausias-fusioninventory-agent, aurex-cc-switch
+Depends: ${misc:Depends}, aurex-cc-netshares, aurex-cc-sssd, aurex-pam-script, aurex-pam-quota, aurex-samba4-passwd, aurex-passwd, aurex-gtk-bookmarks-settings, ausias-cc-extra-settings, ausias-fusioninventory-agent, aurex-cc-switch
 Description: Metapackage for CIPFP Ausias March corporative intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.

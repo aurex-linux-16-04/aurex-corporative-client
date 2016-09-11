@@ -1,3 +1,15 @@
+aurex-corporative-client (0.93) xenial; urgency=medium
+
+  * ausias-cc-default-settings updated to use aurex-pam-scripts
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 11 Sep 2016 18:04:19 +0200
+
+aurex-corporative-client (0.92) xenial; urgency=medium
+
+  * Fixed papercut client install and network user detection
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 07 Sep 2016 18:49:34 +0200
+
 aurex-corporative-client (0.91) xenial; urgency=medium
 
   * Added original mirror for partner repository
