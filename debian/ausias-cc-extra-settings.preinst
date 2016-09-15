@@ -1,8 +1,8 @@
 #!/bin/sh -e
 
 refresh_mounts(){
-	invoke-rc.d autofs stop || true
-	invoke-rc.d autofs start || true
+	deb-systemd-invoke autofs stop || true
+	deb-systemd-invoke autofs start || true
 	sleep 2
 	ls /datos/mirror/ > /dev/null 2> /dev/null || true
 }

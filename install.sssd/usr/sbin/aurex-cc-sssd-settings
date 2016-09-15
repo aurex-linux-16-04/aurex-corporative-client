@@ -26,8 +26,8 @@ case "$1" in
 		aurex-transmute --module=cc-sssd untransmute || true
 		pam-auth-update --package --remove aurex-cc-groups aurex-cc-mkhomedir aurex-pam-quota || true
 		sed -i -e "/$START_AUTH/,/$END_AUTH/d" /etc/hosts
-		[ ! -x /etc/init.d/nscd ] || invoke-rc.d nscd restart || true
-		service sssd restart || true
+		[ ! -x /etc/init.d/nscd ] || deb-systemd-invoke restart nscd || true
+		deb-systemd-invoke sssd restart || true
 
 		;;
 	update|enable)
@@ -48,8 +48,8 @@ case "$1" in
 		sed -ne "/$END_AUTH/,\${/$END_AUTH/d;p}" /etc/hosts >> "$TMP_FILE"
 		cat "$TMP_FILE" > /etc/hosts
 		rm -f "$TMP_FILE"
-		service sssd restart || true
-		[ ! -x /etc/init.d/nscd ] || invoke-rc.d nscd restart || true
+		deb-systemd-invoke sssd restart || true
+		[ ! -x /etc/init.d/nscd ] || deb-systemd-invoke nscd restart || true
 
 		;;
 	*)

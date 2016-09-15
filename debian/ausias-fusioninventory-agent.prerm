@@ -20,7 +20,7 @@ set -e
 case "$1" in
     remove|upgrade|deconfigure)
         aurex-transmute --module=fusioninventory-agent untransmute || true
-	invoke-rc.d fusioninventory-agent restart || true
+	deb-systemd-invoke fusioninventory-agent restart || true
 
     ;;
 

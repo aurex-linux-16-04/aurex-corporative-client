@@ -3,7 +3,7 @@
 case "$1" in
     configure)
 	aurex-transmute --module=fusioninventory-agent transmute || true
-	invoke-rc.d fusioninventory-agent restart || true
+	deb-systemd-invoke fusioninventory-agent restart || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
     	;;

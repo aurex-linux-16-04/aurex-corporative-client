@@ -96,11 +96,11 @@ iface eth0 inet dhcp
 EOF
 
 echo "Tratando de parar el Network manager y reinmiciar la red"
-invoke-rc.d network-manager stop || true
+service network-manager stop || true
 sleep 1
-invoke-rc.d networking stop || true
+service networking stop || true
 sleep 1
-invoke-rc.d networking start || die "Error reiniciando la red"
+service networking start || die "Error reiniciando la red"
 
 # configure nm
 cat <<EOF >/etc/NetworkManager/NetworkManager.conf
