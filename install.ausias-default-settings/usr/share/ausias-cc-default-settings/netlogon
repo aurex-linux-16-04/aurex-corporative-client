@@ -94,7 +94,7 @@ if echo " $VALID_SERVICES_LIST " |grep -q " $PAM_SERVICE " && echo " $VALID_TYPE
 			[ -h "$DOC_LINK" ] || do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
 			[ -h "$DEP_LINK" ] || do_link_dep "$DEP_LINK" 
 			[ -h "$PUB_LINK" ] || do_link_pub "$PUB_LINK" 
-			[ -h "$PUB_LINK" ] || do_link_pdf "$PDF_LINK" 
+			[ -h "$PDF_LINK" ] || do_link_pdf "$PDF_LINK" 
 			;;
 	esac
 	if echo " $GLIST " |grep -q " PR_DIRECCION " ; then

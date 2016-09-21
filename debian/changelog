@@ -1,3 +1,9 @@
+aurex-corporative-client (0.96) xenial; urgency=medium
+
+  * Fixed bookmarks for conserjeria
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 21 Sep 2016 15:15:43 +0200
+
 aurex-corporative-client (0.95) xenial; urgency=medium
 
   * Replace invoke-rc.d with deb-systemd-invoke in maintscripts (systemd rules!)
