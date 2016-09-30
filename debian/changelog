@@ -1,3 +1,9 @@
+aurex-corporative-client (0.97) xenial; urgency=medium
+
+  * Fixed "Jefatura" share symlink
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 30 Sep 2016 11:50:52 +0200
+
 aurex-corporative-client (0.96) xenial; urgency=medium
 
   * Fixed bookmarks for conserjeria

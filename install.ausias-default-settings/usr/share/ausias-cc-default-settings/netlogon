@@ -17,6 +17,7 @@
 #	>> $LOGFILE
 #chmod 666 $LOGFILE > /dev/null 2>&1
 
+
 is_network_user(){
 	PASS_USER="$1"
 	NUM_USERS=$(getent passwd "$PASS_USER" |wc -l)
@@ -27,7 +28,11 @@ is_network_user(){
 }
 
 do_link(){
-	ln -s "$1" "$2"
+	[ -h "$2" ] && [ "$(readlink "$2")" = "$1" ] ; then
+		return 0
+	fi
+	
+	ln -sf "$1" "$2"
 	chown -h $PAM_USER:$PGRID "$2"
 }
 
@@ -75,33 +80,34 @@ if echo " $VALID_SERVICES_LIST " |grep -q " $PAM_SERVICE " && echo " $VALID_TYPE
 	JEF_LINK="$HDIR/Jefatura"
 	PDF_LINK="$HDIR/PDF-imprimir"
 
+
 	case "$PGRID" in
 		501)
 			# PROFESORES
-			[ -h "$DOC_LINK" ] || do_link "/glfs/bruna/userdata/usuarios/profesores/$PAM_USER" "$DOC_LINK" 
-			[ -h "$DEP_LINK" ] || do_link_dep "$DEP_LINK" 
-			[ -h "$PUB_LINK" ] || do_link_pub "$PUB_LINK"
+			do_link "/glfs/bruna/userdata/usuarios/profesores/$PAM_USER" "$DOC_LINK" 
+			do_link_dep "$DEP_LINK" 
+			do_link_pub "$PUB_LINK"
 			;;
 		503)
 			# SECRETARIA
-			[ -h "$DOC_LINK" ] || do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
-			[ -h "$DEP_LINK" ] || do_link_dep "$DEP_LINK" 
-			[ -h "$PUB_LINK" ] || do_link_pub "$PUB_LINK" 
+			do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
+			do_link_dep "$DEP_LINK" 
+			do_link_pub "$PUB_LINK" 
 			;;
 
 		504)
 			# CONSERJERIA
-			[ -h "$DOC_LINK" ] || do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
-			[ -h "$DEP_LINK" ] || do_link_dep "$DEP_LINK" 
-			[ -h "$PUB_LINK" ] || do_link_pub "$PUB_LINK" 
-			[ -h "$PDF_LINK" ] || do_link_pdf "$PDF_LINK" 
+			do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
+			do_link_dep "$DEP_LINK" 
+			do_link_pub "$PUB_LINK" 
+			do_link_pdf "$PDF_LINK" 
 			;;
 	esac
 	if echo " $GLIST " |grep -q " PR_DIRECCION " ; then
-		[ -h "$DIR_LINK" ] || do_link_dir "$DIR_LINK" 
+		do_link_dir "$DIR_LINK" 
 	fi
 	if echo " $GLIST " |grep -q " PR_JEFATURA " ; then
-		[ -h "$JEF_LINK" ] || do_link_dir "$JEF_LINK" 
+		do_link_jef "$JEF_LINK" 
 	fi
 fi	
 exit 0
