@@ -32,7 +32,8 @@ do_link(){
 		return 0
 	fi
 	
-	ln -sf "$1" "$2"
+	rm -f "$2"
+	ln -s "$1" "$2"
 	chown -h $PAM_USER:$PGRID "$2"
 }
 

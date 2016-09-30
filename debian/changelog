@@ -1,3 +1,9 @@
+aurex-corporative-client (0.99) xenial; urgency=medium
+
+  * netlogon script "refixed"
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 30 Sep 2016 12:23:33 +0200
+
 aurex-corporative-client (0.98) xenial; urgency=medium
 
   * netlogon script fixed
