@@ -1,3 +1,9 @@
+aurex-corporative-client (0.98) xenial; urgency=medium
+
+  * netlogon script fixed
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 30 Sep 2016 12:02:10 +0200
+
 aurex-corporative-client (0.97) xenial; urgency=medium
 
   * Fixed "Jefatura" share symlink

@@ -28,7 +28,7 @@ is_network_user(){
 }
 
 do_link(){
-	[ -h "$2" ] && [ "$(readlink "$2")" = "$1" ] ; then
+	if [ -h "$2" ] && [ "$(readlink "$2")" = "$1" ] ; then
 		return 0
 	fi
 	
