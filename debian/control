@@ -7,13 +7,21 @@ Standards-Version: 3.9.3
 
 Package: aurex-cc-sssd
 Architecture: all
-Depends: ${misc:Depends}, aurex-transmute, sssd, aurex-atspi-fix
+Depends: ${misc:Depends}, aurex-transmute, sssd, aurex-atspi-fix, aurex-cc-ssd-i386
 Conflicts: aurex-cc-auth
 Description: Aurex Corporative Client sssd based
  This package will install all required packages for an ldap client.
  It uses sssd to provide ldap validation with cedentials cache
  The default configuration allows an aurex desktop (and may be a plain
  ubuntu desktop too ;-) ) to validate login against a Corporative server.
+
+Package: aurex-cc-ssd-i386
+Architecture: all
+Depends: ${misc:Depends}, libnss-sss:i386
+Description: sss components for i386 architecture (required for acroread)
+ This metapackage installs sss components for i386 architecture. This libraries
+ are required to run correctly acrobat reader when ldap auth is enabled in a 
+ amd64 architecure via sssd (acroread is available only for i386 architecture)
 
 Package: aurex-cc-auth
 Architecture: all

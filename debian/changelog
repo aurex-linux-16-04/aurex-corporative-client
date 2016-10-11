@@ -1,3 +1,12 @@
+aurex-corporative-client (0.100) xenial; urgency=medium
+
+  * New binary package aurex-cc-ssd-i386 to force
+    installation of i386 sssd components ro run corectly
+    acrobat reader when ldap auth is enabled in a amd64 architecture
+    via sssd (acroread is available only for i386 architecture)
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 11 Oct 2016 08:55:36 +0200
+
 aurex-corporative-client (0.99) xenial; urgency=medium
 
   * netlogon script "refixed"
