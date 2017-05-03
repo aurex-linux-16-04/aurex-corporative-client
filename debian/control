@@ -112,7 +112,7 @@ Description: Additional metapackage for CIPFP Ausias March intranet corporative 
 
 Package: ausias-fusioninventory-agent
 Architecture: all
-Depends: ${misc:Depends}, fusioninventory-agent, aurex-transmute
+Depends: ${misc:Depends}, fusioninventory-agent, aurex-transmute, xresprobe
 Description: CIPFP Ausias March intranet installation for fusioninventory
  The package installs fusioninventory-agent and specific custom configuration
  for the intranet of the CIPFP AUsias March.
