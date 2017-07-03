@@ -1,3 +1,9 @@
+aurex-corporative-client (0.102) xenial; urgency=medium
+
+  * ausias-extra-settings updated to use xwarrior as mirror
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 03 Jul 2017 23:19:14 +0200
+
 aurex-corporative-client (0.101) xenial; urgency=medium
 
   * Added xresprobe as depends
