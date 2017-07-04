@@ -1,3 +1,9 @@
+aurex-corporative-client (0.103) xenial; urgency=medium
+
+  * Divert 50appstream to disable DEP-11 download 
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Tue, 04 Jul 2017 09:48:08 +0200
+
 aurex-corporative-client (0.102) xenial; urgency=medium
 
   * ausias-extra-settings updated to use xwarrior as mirror
