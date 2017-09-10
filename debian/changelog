@@ -1,3 +1,9 @@
+aurex-corporative-client (0.104) xenial; urgency=medium
+
+  * Binaries updated for compatibility with soulmate-transmute
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 10 Sep 2017 02:08:23 +0200
+
 aurex-corporative-client (0.103) xenial; urgency=medium
 
   * Divert 50appstream to disable DEP-11 download 
