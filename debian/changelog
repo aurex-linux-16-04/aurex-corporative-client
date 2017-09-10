@@ -1,3 +1,9 @@
+aurex-corporative-client (0.106) xenial; urgency=medium
+
+  * set soulmate-gtk-bookmarks-settings as alternative to aurex-gtk-bookmarks-settings
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 10 Sep 2017 19:16:10 +0200
+
 aurex-corporative-client (0.105) xenial; urgency=medium
 
   * Move aurex-unplugged-theme to recommends
