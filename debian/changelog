@@ -1,3 +1,9 @@
+aurex-corporative-client (0.105) xenial; urgency=medium
+
+  * Move aurex-unplugged-theme to recommends
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 10 Sep 2017 18:23:07 +0200
+
 aurex-corporative-client (0.104) xenial; urgency=medium
 
   * Binaries updated for compatibility with soulmate-transmute
