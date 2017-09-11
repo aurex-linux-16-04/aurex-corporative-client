@@ -57,7 +57,7 @@ do_link_pdf(){
 	do_link "/glfs/bruna/workdata/PDF2Conserjeria" "$1"
 }
 
-VALID_SERVICES_LIST="lightdm"
+VALID_SERVICES_LIST="lightdm mdm"
 VALID_TYPES_LIST="session"
 
 TEACHERS_ID="501"

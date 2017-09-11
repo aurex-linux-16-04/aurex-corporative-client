@@ -1,5 +1,12 @@
 aurex-corporative-client (0.106) xenial; urgency=medium
 
+  * Added mdm to valid services list in 'netlogon script' (aka 20-ausias-default-mounts)
+    for compatibility with soulmate
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 11 Sep 2017 20:17:19 +0200
+
+aurex-corporative-client (0.106) xenial; urgency=medium
+
   * set soulmate-gtk-bookmarks-settings as alternative to aurex-gtk-bookmarks-settings
 
  -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sun, 10 Sep 2017 19:16:10 +0200
