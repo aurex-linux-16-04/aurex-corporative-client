@@ -1,4 +1,4 @@
-aurex-corporative-client (0.106) xenial; urgency=medium
+aurex-corporative-client (0.107) xenial; urgency=medium
 
   * Added mdm to valid services list in 'netlogon script' (aka 20-ausias-default-mounts)
     for compatibility with soulmate
