@@ -1,6 +1,6 @@
-/glfs/bruna/stockdata/mirror	/datos/mirror
-/glfs/bruna/workdata/isos	/datos/isos
-/glfs/bruna/workdata/msdn	/datos/msdn
-/glfs/bruna/workdata/netcache	/datos/netcache
-/glfs/bruna/userdata/ausiasbox	/datos/ausiasbox
+/net/bruna/stockdata/mirror	/datos/mirror
+/net/bruna/workdata/isos	/datos/isos
+/net/bruna/workdata/msdn	/datos/msdn
+/net/bruna/workdata/netcache	/datos/netcache
+/net/bruna/userdata/ausiasbox	/datos/ausiasbox
 

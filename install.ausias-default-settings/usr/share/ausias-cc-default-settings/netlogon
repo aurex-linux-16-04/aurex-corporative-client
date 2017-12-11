@@ -38,23 +38,23 @@ do_link(){
 }
 
 do_link_dep(){
-	do_link "/glfs/bruna/userdata/departamentos" "$1"
+	do_link "/net/bruna/userdata/departamentos" "$1"
 }
 
 do_link_pub(){
-	do_link "/glfs/bruna/userdata/publico" "$1"
+	do_link "/net/bruna/userdata/publico" "$1"
 }
 
 do_link_dir(){
-	do_link "/glfs/bruna/userdata/direccion" "$1"
+	do_link "/net/bruna/userdata/direccion" "$1"
 }
 
 do_link_jef(){
-	do_link "/glfs/bruna/userdata/jefatura" "$1"
+	do_link "/net/bruna/userdata/jefatura" "$1"
 }
 
 do_link_pdf(){
-	do_link "/glfs/bruna/workdata/PDF2Conserjeria" "$1"
+	do_link "/net/bruna/workdata/PDF2Conserjeria" "$1"
 }
 
 VALID_SERVICES_LIST="lightdm mdm"
@@ -85,20 +85,20 @@ if echo " $VALID_SERVICES_LIST " |grep -q " $PAM_SERVICE " && echo " $VALID_TYPE
 	case "$PGRID" in
 		501)
 			# PROFESORES
-			do_link "/glfs/bruna/userdata/usuarios/profesores/$PAM_USER" "$DOC_LINK" 
+			do_link "/net/bruna/userdata/usuarios/profesores/$PAM_USER" "$DOC_LINK" 
 			do_link_dep "$DEP_LINK" 
 			do_link_pub "$PUB_LINK"
 			;;
 		503)
 			# SECRETARIA
-			do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
+			do_link "/net/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
 			do_link_dep "$DEP_LINK" 
 			do_link_pub "$PUB_LINK" 
 			;;
 
 		504)
 			# CONSERJERIA
-			do_link "/glfs/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
+			do_link "/net/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
 			do_link_dep "$DEP_LINK" 
 			do_link_pub "$PUB_LINK" 
 			do_link_pdf "$PDF_LINK" 

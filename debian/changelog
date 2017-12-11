@@ -1,3 +1,10 @@
+aurex-corporative-client (0.108) xenial; urgency=medium
+
+  * Replace gluster access to bruna with nfs due to client access
+    problem after update
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 11 Dec 2017 16:56:36 +0100
+
 aurex-corporative-client (0.107) xenial; urgency=medium
 
   * Added mdm to valid services list in 'netlogon script' (aka 20-ausias-default-mounts)
