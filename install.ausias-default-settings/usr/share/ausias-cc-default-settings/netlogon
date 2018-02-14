@@ -38,23 +38,23 @@ do_link(){
 }
 
 do_link_dep(){
-	do_link "/net/bruna/userdata/departamentos" "$1"
+	do_link "/${MOUNT_TYPE}/bruna/userdata/departamentos" "$1"
 }
 
 do_link_pub(){
-	do_link "/net/bruna/userdata/publico" "$1"
+	do_link "/${MOUNT_TYPE}/bruna/userdata/publico" "$1"
 }
 
 do_link_dir(){
-	do_link "/net/bruna/userdata/direccion" "$1"
+	do_link "/${MOUNT_TYPE}/bruna/userdata/direccion" "$1"
 }
 
 do_link_jef(){
-	do_link "/net/bruna/userdata/jefatura" "$1"
+	do_link "/${MOUNT_TYPE}/bruna/userdata/jefatura" "$1"
 }
 
 do_link_pdf(){
-	do_link "/net/bruna/workdata/PDF2Conserjeria" "$1"
+	do_link "/${MOUNT_TYPE}/bruna/workdata/PDF2Conserjeria" "$1"
 }
 
 VALID_SERVICES_LIST="lightdm mdm"
@@ -64,6 +64,9 @@ TEACHERS_ID="501"
 STUDENTS_ID="502"
 SECRETAR_ID="503"
 CONSERJE_ID="504"
+
+#MOUNT_TYPE="net"
+MOUNT_TYPE="glfs"
 
 if [ -z "$PAM_SERVICE" ] || [ -z "$PAM_TYPE" ] || [ -z "$PAM_USER" ] || ! is_network_user "$PAM_USER" ; then
 	exit 0
@@ -85,20 +88,20 @@ if echo " $VALID_SERVICES_LIST " |grep -q " $PAM_SERVICE " && echo " $VALID_TYPE
 	case "$PGRID" in
 		501)
 			# PROFESORES
-			do_link "/net/bruna/userdata/usuarios/profesores/$PAM_USER" "$DOC_LINK" 
+			do_link "/${MOUNT_TYPE}/bruna/userdata/usuarios/profesores/$PAM_USER" "$DOC_LINK" 
 			do_link_dep "$DEP_LINK" 
 			do_link_pub "$PUB_LINK"
 			;;
 		503)
 			# SECRETARIA
-			do_link "/net/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
+			do_link "/${MOUNT_TYPE}/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
 			do_link_dep "$DEP_LINK" 
 			do_link_pub "$PUB_LINK" 
 			;;
 
 		504)
 			# CONSERJERIA
-			do_link "/net/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
+			do_link "/${MOUNT_TYPE}/bruna/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
 			do_link_dep "$DEP_LINK" 
 			do_link_pub "$PUB_LINK" 
 			do_link_pdf "$PDF_LINK" 

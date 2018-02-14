@@ -1,3 +1,10 @@
+aurex-corporative-client (0.110) xenial; urgency=medium
+
+  * Back to gluster access to bruna (nfs seems to have
+    problems with user perms) ¿?
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 14 Feb 2018 17:40:02 +0100
+
 aurex-corporative-client (0.109) xenial; urgency=medium
 
   * Workaround to upgrade aurex-lpadmin with systemd.
