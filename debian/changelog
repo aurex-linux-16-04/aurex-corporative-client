@@ -1,3 +1,9 @@
+aurex-corporative-client (0.112) xenial; urgency=medium
+
+  * Added oracle-java10-installer as an alternative depends
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 16 May 2018 16:30:23 +0200
+
 aurex-corporative-client (0.111) xenial; urgency=medium
 
   * Added oracle-java9-installer as an alternative depends
