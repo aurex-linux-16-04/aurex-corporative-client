@@ -1,3 +1,10 @@
+aurex-corporative-client (0.116) xenial; urgency=medium
+
+  * Force 'vers=3' in /etc/auto.master.d/aurex-nfs.autofs to force nfs3 to
+    get acls working with autofs
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sat, 28 Jul 2018 00:40:49 +0200
+
 aurex-corporative-client (0.115) xenial; urgency=medium
 
   * Remove obsolete groups from /etc/security/group to mitigate the 16 group
