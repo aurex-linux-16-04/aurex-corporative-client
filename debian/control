@@ -143,4 +143,11 @@ Description: Tool to switch corporative client settings
  standalone workstation modes (for instance, when booting corporative clients
  without network connection)
 
+Package: ausias-cc-update-settings
+Architecture: all
+Depends: ${misc:Depends}, aurex-cc-sssd (= ${binary:Version}), aurex-cc-autofs (= ${binary:Version}), ausias-cc-default-settings (= ${binary:Version}), ausias-cc-extra-settings (= ${binary:Version})
+Description: Metapackage to simplify infrastructure update in CIPFP Ausias March intranet
+ This package will always depend on the latest configuration files for CIPFP Ausias March
+ intranet environment
+
 
