@@ -1,3 +1,9 @@
+aurex-corporative-client (0.113) xenial; urgency=medium
+
+  * Replace bruna by lildevil in autofs data
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 27 Jul 2018 14:40:21 +0200
+
 aurex-corporative-client (0.112) xenial; urgency=medium
 
   * Added oracle-java10-installer as an alternative depends
