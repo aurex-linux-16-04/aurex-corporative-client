@@ -1,3 +1,10 @@
+aurex-corporative-client (0.115) xenial; urgency=medium
+
+  * Remove obsolete groups from /etc/security/group to mitigate the 16 group
+    limit of NFS
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sat, 28 Jul 2018 00:02:11 +0200
+
 aurex-corporative-client (0.114) xenial; urgency=medium
 
   * Fixed lildevil new shared paths
