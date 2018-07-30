@@ -48,8 +48,8 @@ case "$1" in
 		sed -ne "/$END_AUTH/,\${/$END_AUTH/d;p}" /etc/hosts >> "$TMP_FILE"
 		cat "$TMP_FILE" > /etc/hosts
 		rm -f "$TMP_FILE"
-		deb-systemd-invoke sssd restart || true
-		[ ! -x /etc/init.d/nscd ] || deb-systemd-invoke nscd restart || true
+		deb-systemd-invoke restart sssd || true
+		[ ! -x /etc/init.d/nscd ] || deb-systemd-invoke restart nscd || true
 
 		;;
 	*)
