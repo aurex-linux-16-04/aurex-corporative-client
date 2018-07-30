@@ -57,7 +57,8 @@ do_link_pdf(){
 	do_link "/${MOUNT_TYPE}/lildevil/srv/workdata/PDF2Conserjeria" "$1"
 }
 
-VALID_SERVICES_LIST="lightdm mdm"
+# mdm reports itslef as service nx ¿?
+VALID_SERVICES_LIST="lightdm mdm nx"
 VALID_TYPES_LIST="session"
 
 TEACHERS_ID="501"

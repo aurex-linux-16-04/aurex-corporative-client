@@ -1,3 +1,10 @@
+aurex-corporative-client (0.118) xenial; urgency=medium
+
+  *  Added 'nx' to valid services in netlogon because mdm reports
+     itself in this way ¿?
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 30 Jul 2018 18:57:22 +0200
+
 aurex-corporative-client (0.117) xenial; urgency=medium
 
   * Fixed a typo in aurex-cc-sssd-settings
