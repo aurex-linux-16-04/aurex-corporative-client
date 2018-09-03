@@ -27,10 +27,13 @@ case "$1" in
 		pam-auth-update --package --remove aurex-cc-groups aurex-cc-mkhomedir aurex-pam-quota || true
 		sed -i -e "/$START_AUTH/,/$END_AUTH/d" /etc/hosts
 		[ ! -x /etc/init.d/nscd ] || deb-systemd-invoke restart nscd || true
-		deb-systemd-invoke sssd restart || true
+		deb-systemd-invoke restart sssd || true
 
 		;;
 	update|enable)
+		# do unstransmute first
+		aurex-transmute --module=cc-sssd untransmute || true
+
 		aurex-transmute --module=cc-sssd transmute || true
 		pam-auth-update --package --force || true
 		chmod 600 /etc/sssd/sssd.conf
