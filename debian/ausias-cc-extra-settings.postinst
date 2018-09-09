@@ -2,9 +2,15 @@
 
 case "$1" in
     configure)
-	cp /etc/apt/sources.list /var/lib/ausias-cc-extra-settings/sources.list.backup
+	for f in sources.list sources.list.d/soulmate-sources.list ; do
+		if [ -r "/etc/apt/$f" ] ; then
+			cp "/etc/apt/$f" /var/lib/ausias-cc-extra-settings/$f.backup
+		fi
+	done
 	aurex-transmute --module=ausias-cc-extra transmute || true
-	aurex-transmute --force --module=transmute transmute sources || true
+	TRANS_TOOL="/usr/sbin/sm-transmute"
+	[ -x "$TRANS_TOOL" ] || TRANS_TOOL="/usr/sbin/aurex-transmute"
+	$TRANS_TOOL --force --module=transmute transmute sources || true
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
     	;;

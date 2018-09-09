@@ -1,3 +1,9 @@
+aurex-corporative-client (0.120) xenial; urgency=medium
+
+  * Added support for soulmate sources.list mirrors
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 10 Sep 2018 01:55:37 +0200
+
 aurex-corporative-client (0.119) xenial; urgency=medium
 
   * Fixed aurex-cc-sssd-settings
