@@ -22,7 +22,12 @@ case "$1" in
 	# do nothing
     ;;
     remove|deconfigure)
-	aurex-transmute --module=ausias-cc-extra untransmute || true
+	for f in sources.list sources.list.d/soulmate-sources.list ; do
+                if [ -r "/var/lib/ausias-cc-extra-settings/$f.backup" ] ; then
+                        cp /var/lib/ausias-cc-extra-settings/$f.backup "/etc/apt/$f"
+			rm -f /var/lib/ausias-cc-extra-settings/$f.backup
+                fi
+        done
     ;;
 
     failed-upgrade)

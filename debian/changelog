@@ -1,3 +1,9 @@
+aurex-corporative-client (0.121) stretch; urgency=medium
+
+  * Added binary package ausias-cc-mirror-settings
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 11 Oct 2018 14:04:05 +0200
+
 aurex-corporative-client (0.120) xenial; urgency=medium
 
   * Added support for soulmate sources.list mirrors
