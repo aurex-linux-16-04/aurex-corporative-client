@@ -4,7 +4,7 @@ case "$1" in
     configure)
 	for f in sources.list sources.list.d/soulmate-sources.list ; do
 		if [ -r "/etc/apt/$f" ] ; then
-			cp "/etc/apt/$f" /var/lib/ausias-cc-extra-settings/$f.backup
+			cp "/etc/apt/$f" /var/lib/ausias-cc-mirror-settings/$f.backup
 		fi
 	done
 	TRANS_TOOL="/usr/sbin/sm-transmute"
