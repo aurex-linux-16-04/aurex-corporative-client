@@ -1,4 +1,4 @@
-aurex-corporative-client (0.121) stretch; urgency=medium
+aurex-corporative-client (0.121) xenial; urgency=medium
 
   * Added binary package ausias-cc-mirror-settings
 
