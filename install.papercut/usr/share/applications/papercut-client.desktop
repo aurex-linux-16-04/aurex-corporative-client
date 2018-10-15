@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=papercut-client
+Comment=papercut-client
+Icon=/var/lib/papercut-client/client-logo.png
+Exec=papercut-client
+Terminal=false
+Type=Application
+Categories=HardwareSettings;Education;Office;
+# Translators: those are keywords for the printing control-center panel
+Keywords=Printer;Queue;Print;Paper;Ink;Toner;Ausias;Impresora;Impresion;
+

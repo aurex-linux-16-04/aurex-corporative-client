@@ -8,10 +8,10 @@ is_network_user(){
         return 0
 }
 
-
+. /usr/share/ausias-papercut-client/papercut-client-common
 CMD_OPTIONS=""
 # check if we are logged to domain or local user, if not, set additional options
 #[ "$USER" ] && getent group Domain\ Users |sed -e "s%^.*:%,%;s%$%,%" |grep -q ",${USER}," || CMD_OPTIONS="--neverrequestidentity --user onlyprint"
 [ "$USER" ] && is_network_user "$USER" || CMD_OPTIONS="--neverrequestidentity --user onlyprint"
-_@_TARGET_DIR_@_/pc-client-linux.sh $CMD_OPTIONS &
+$TARGET_DIR/pc-client-linux.sh $CMD_OPTIONS
 

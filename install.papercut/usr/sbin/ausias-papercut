@@ -1,20 +1,18 @@
 #!/bin/sh
 #OLD_TARGET_DIR="/clickcontrol"
-TARGET_DIR="/var/lib/papercut-client"
+#TARGET_DIR="/var/lib/papercut-client"
+. /usr/share/ausias-papercut-client/papercut-client-common
 
 usage(){
 	echo "Usage: $(basename "$0") [install|remove|enable|disable]"
 }
 
 do_enable(){
-	if [ -d "$TARGET_DIR" ] && [ -x "$TARGET_DIR/pc-client-linux.sh" ] && [ -d "$TARGET_DIR/lib" ] ; then
-		sed -e "s%_@_TARGET_DIR_@_%$TARGET_DIR%g" /usr/share/ausias-papercut-client/papercut-client.sh.in > /etc/profile.d/papercut-client.sh
-		chmod 755 "/etc/profile.d/papercut-client.sh"
-	fi
+	ln -s /usr/share/ausias-papercut-client/papercut-client.desktop /etc/xdg/autostart
 }
 
 do_disable(){
-	rm -f /etc/profile.d/papercut-client.sh
+	rm -f /etc/xdg/autostart/papercut-client.desktop
 }
 
 case "$1" in 
