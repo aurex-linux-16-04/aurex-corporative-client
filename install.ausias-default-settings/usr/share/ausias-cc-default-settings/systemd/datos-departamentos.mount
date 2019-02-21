@@ -3,7 +3,7 @@ Description=Departments Folders
 After=network.target
 
 [Mount]
-What=lildevil.ausias.lan:/srv/userdata/usuarios/departamentos
+What=lildevil.ausias.lan:/srv/userdata/departamentos
 Where=/datos/departamentos
 Type=nfs
 Options=_netdev,auto
