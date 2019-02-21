@@ -1,3 +1,9 @@
+aurex-corporative-client (0.125) xenial; urgency=medium
+
+  * Removed '/net' references
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 21 Feb 2019 19:04:05 +0100
+
 aurex-corporative-client (0.124) stretch; urgency=medium
 
   * Removed autofs depends
