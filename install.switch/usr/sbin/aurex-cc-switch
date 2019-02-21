@@ -39,7 +39,7 @@ do_enable(){
 	fi
 	aurex-cc-sssd-settings enable || rc=$?
 #	[ $rc -ne 0 ] || aurex-cc-mount-settings enable || rc=$?
-	[ $rc -ne 0 ] || aurex-cc-autofs-settings enable || rc=$?
+#	[ $rc -ne 0 ] || aurex-cc-autofs-settings enable || rc=$?
 	[ $rc -ne 0 ] || ausias-papercut enable || rc=$?
 	if [ $rc -eq 0 ] && [ -x /usr/sbin/aurex-unplugged-theme ]; then
 		aurex-unplugged-theme disable || true
@@ -52,7 +52,7 @@ do_disable(){
 	rc=0
 	aurex-cc-auth-settings disable || rc=$?
 	[ $rc -ne 0 ] || aurex-cc-mount-settings disable || rc=$?
-	[ $rc -ne 0 ] || aurex-cc-autofs-settings disable || rc=$?
+#	[ $rc -ne 0 ] || aurex-cc-autofs-settings disable || rc=$?
 	[ $rc -ne 0 ] || ausias-papercut disable || rc=$?
 	if [ $rc -eq 0 ] && [ -x /usr/sbin/aurex-unplugged-theme ]; then
 		aurex-unplugged-theme enable || true

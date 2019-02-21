@@ -44,7 +44,7 @@ Description: ldap components for i386 architecture (required for acroread)
 
 Package: aurex-cc-netshares
 Architecture: all
-Depends: ${misc:Depends}, aurex-fs-utils (>= 0.6), aurex-pam-script, aurex-cc-autofs
+Depends: ${misc:Depends}, aurex-fs-utils (>= 0.6), aurex-pam-script
 Description: Aurex Corporative Client network shares management
  This is just a metapackage to provide required packages to access
  Corporative glusterfs server shares.
@@ -64,7 +64,7 @@ Description: Aurex printer configuration utility
 
 Package: ausias-cc-default-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-netshares, aurex-cc-sssd, aurex-pam-script, aurex-pam-quota, aurex-samba4-passwd, aurex-passwd, soulmate-gtk-bookmarks-settings|aurex-gtk-bookmarks-settings, ausias-cc-extra-settings, ausias-fusioninventory-agent, aurex-cc-switch
+Depends: ${misc:Depends}, systemd, aurex-cc-netshares, aurex-cc-sssd, aurex-pam-script, aurex-pam-quota, aurex-samba4-passwd, aurex-passwd, soulmate-gtk-bookmarks-settings|aurex-gtk-bookmarks-settings, ausias-cc-extra-settings, ausias-fusioninventory-agent, aurex-cc-switch
 Description: Metapackage for CIPFP Ausias March corporative intranet clients
  This metapackage installs all required packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
@@ -105,7 +105,7 @@ Description: ausias dc server settings
 
 Package: ausias-cc-extra-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-autofs, soulmate-transmute|aurex-transmute (>= 14.04.5), soulmate-gtk-bookmarks-settings|aurex-gtk-bookmarks-settings, ausias-cc-mirror-settings (= ${binary:Version})
+Depends: ${misc:Depends}, systemd, soulmate-transmute|aurex-transmute (>= 14.04.5), soulmate-gtk-bookmarks-settings|aurex-gtk-bookmarks-settings, ausias-cc-mirror-settings (= ${binary:Version})
 Description: Additional metapackage for CIPFP Ausias March intranet corporative clients
  This metapackage installs additional packages and configuration
  settings for clients in CIPFP Ausias March intranet environment.
@@ -135,7 +135,7 @@ Description: aurex autofs management
 
 Package: aurex-cc-switch
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-sssd, aurex-cc-autofs, ausias-papercut-client (>= 0.80)
+Depends: ${misc:Depends}, aurex-cc-sssd, ausias-papercut-client (>= 0.80)
 Recommends: aurex-unplugged-theme
 Description: Tool to switch corporative client settings
  This package allows to switch on/off all corporative client settings
@@ -145,7 +145,7 @@ Description: Tool to switch corporative client settings
 
 Package: ausias-cc-update-settings
 Architecture: all
-Depends: ${misc:Depends}, aurex-cc-sssd (= ${binary:Version}), aurex-cc-autofs (= ${binary:Version}), ausias-cc-default-settings (= ${binary:Version}), ausias-cc-extra-settings (= ${binary:Version})
+Depends: ${misc:Depends}, aurex-cc-sssd (= ${binary:Version}), ausias-cc-default-settings (= ${binary:Version}), ausias-cc-extra-settings (= ${binary:Version})
 Description: Metapackage to simplify infrastructure update in CIPFP Ausias March intranet
  This package will always depend on the latest configuration files for CIPFP Ausias March
  intranet environment

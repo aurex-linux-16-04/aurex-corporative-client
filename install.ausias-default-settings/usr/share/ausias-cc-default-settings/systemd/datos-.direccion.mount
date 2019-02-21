@@ -1,0 +1,11 @@
+Description=Direccion
+After=network.target
+
+[Mount]
+What=lildevil.ausias.lan:/srv/userdata/direccion
+Where=/datos/.direccion
+Type=nfs
+Options=_netdev,auto
+
+[Install]
+WantedBy=multi-user.target

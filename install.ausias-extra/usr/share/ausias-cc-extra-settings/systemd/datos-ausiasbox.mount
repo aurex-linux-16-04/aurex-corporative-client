@@ -1,0 +1,12 @@
+[Unit]
+Description=ausiasbox
+After=network.target
+
+[Mount]
+What=lildevil.ausias.lan:/srv/userdata/ausiasbox
+Where=/datos/ausiasbox
+Type=nfs
+Options=_netdev,auto
+
+[Install]
+WantedBy=multi-user.target

@@ -37,24 +37,31 @@ do_link(){
 	chown -h $PAM_USER:$PGRID "$2"
 }
 
+do_link_prof(){
+	do_link "/datos/.profesores/$PAM_USER" "$1"
+}
+do_link_pas(){
+	do_link "/datos/.pas/$PAM_USER" "$1"
+
+}
 do_link_dep(){
-	do_link "/${MOUNT_TYPE}/lildevil/srv/userdata/departamentos" "$1"
+	do_link "/datos/departamentos" "$1"
 }
 
 do_link_pub(){
-	do_link "/${MOUNT_TYPE}/lildevil/srv/userdata/publico" "$1"
+	do_link "/datos/publico" "$1"
 }
 
 do_link_dir(){
-	do_link "/${MOUNT_TYPE}/lildevil/srv/userdata/direccion" "$1"
+	do_link "/datos/.direccion" "$1"
 }
 
 do_link_jef(){
-	do_link "/${MOUNT_TYPE}/lildevil/srv/userdata/jefatura" "$1"
+	do_link "/datos/.jefatura" "$1"
 }
 
 do_link_pdf(){
-	do_link "/${MOUNT_TYPE}/lildevil/srv/workdata/PDF2Conserjeria" "$1"
+	do_link "/datos/.pdf2conserjeria" "$1"
 }
 
 # mdm reports itslef as service nx ¿?
@@ -85,26 +92,22 @@ if echo " $VALID_SERVICES_LIST " |grep -q " $PAM_SERVICE " && echo " $VALID_TYPE
 	JEF_LINK="$HDIR/Jefatura"
 	PDF_LINK="$HDIR/PDF-imprimir"
 
+	do_link_dep "$DEP_LINK" 
+	do_link_pub "$PUB_LINK" 
 
 	case "$PGRID" in
 		501)
 			# PROFESORES
-			do_link "/${MOUNT_TYPE}/lildevil/srv/userdata/usuarios/profesores/$PAM_USER" "$DOC_LINK" 
-			do_link_dep "$DEP_LINK" 
-			do_link_pub "$PUB_LINK"
+			do_link_prof "$DOC_LINK" 
 			;;
 		503)
 			# SECRETARIA
-			do_link "/${MOUNT_TYPE}/lildevil/srv/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
-			do_link_dep "$DEP_LINK" 
-			do_link_pub "$PUB_LINK" 
+			do_link_pas "$DOC_LINK" 
 			;;
 
 		504)
 			# CONSERJERIA
-			do_link "/${MOUNT_TYPE}/lildevil/srv/userdata/usuarios/pas/$PAM_USER" "$DOC_LINK" 
-			do_link_dep "$DEP_LINK" 
-			do_link_pub "$PUB_LINK" 
+			do_link_pas "$DOC_LINK" 
 			do_link_pdf "$PDF_LINK" 
 			;;
 	esac

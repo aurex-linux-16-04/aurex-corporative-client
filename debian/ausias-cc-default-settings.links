@@ -1,3 +1,9 @@
 /usr/share/ausias-cc-default-settings/netlogon		/etc/aurex-pam-script/ses_open.d/20-ausias-default-mounts
 /usr/share/ausias-cc-default-settings/hosts		/etc/aurex-cc/hosts.d/ausias-cc-default-settings.hosts
 /usr/share/ausias-cc-default-settings/apparmor-home	/etc/apparmor.d/tunables/home.d/ausias-cc
+/usr/share/ausias-cc-default-settings/systemd/datos-.pdf2conserjeria.mount	/etc/systemd/system/datos-.pdf2conserjeria.mount
+/usr/share/ausias-cc-default-settings/systemd/datos-.profesores.mount		/etc/systemd/system/datos-.profesores.mount
+/usr/share/ausias-cc-default-settings/systemd/datos-.direccion.mount		/etc/systemd/system/datos-.direccion.mount
+/usr/share/ausias-cc-default-settings/systemd/datos-publico.mount		/etc/systemd/system/datos-publico.mount
+/usr/share/ausias-cc-default-settings/systemd/datos-departamentos.mount		/etc/systemd/system/datos-departamentos.mount
+/usr/share/ausias-cc-default-settings/systemd/datos-.jefatura.mount		/etc/systemd/system/datos-.jefatura.mount

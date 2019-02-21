@@ -13,6 +13,11 @@ case "$1" in
 	aurex-cc-sssd-settings update || true
 	# aurex-cc-mount-settings update || true
 	[ ! -x /usr/lib/lightdm/lightdm-set-defaults ] || /usr/lib/lightdm/lightdm-set-defaults -i true || true
+	systemctl daemon-reload || true
+	SFOLDER="/usr/share/ausias-cc-default-settings/systemd"
+	for f in $(ls -1 $SFOLDER |grep "\.mount$") ; do
+		systemctl start $f || true
+	done
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)
     	;;

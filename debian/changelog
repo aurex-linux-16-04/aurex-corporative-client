@@ -1,3 +1,10 @@
+aurex-corporative-client (0.124) stretch; urgency=medium
+
+  * Removed autofs depends
+  * NFS shares are now managed via systemd mount
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 21 Feb 2019 18:57:34 +0100
+
 aurex-corporative-client (0.123) stretch; urgency=medium
 
   * Autorun script removed from profile and installed in xdg autostart dir

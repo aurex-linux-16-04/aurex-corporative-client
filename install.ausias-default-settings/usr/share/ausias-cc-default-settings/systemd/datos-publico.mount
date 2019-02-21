@@ -1,0 +1,11 @@
+Description=Public Folder
+After=network.target
+
+[Mount]
+What=lildevil.ausias.lan:/srv/userdata/publico
+Where=/datos/publico
+Type=nfs
+Options=_netdev,auto
+
+[Install]
+WantedBy=multi-user.target

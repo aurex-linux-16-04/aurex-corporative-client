@@ -1,0 +1,12 @@
+[Unit]
+Description=mirror
+After=network.target
+
+[Mount]
+What=lildevil.ausias.lan:/srv/stockdata/mirror
+Where=/datos/mirror
+Type=nfs
+Options=_netdev,auto
+
+[Install]
+WantedBy=multi-user.target

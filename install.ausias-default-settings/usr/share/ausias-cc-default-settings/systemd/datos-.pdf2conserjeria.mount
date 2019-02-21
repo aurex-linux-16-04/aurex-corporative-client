@@ -1,0 +1,11 @@
+Description=Conserjeria
+After=network.target
+
+[Mount]
+What=lildevil.ausias.lan:/srv/workdata/PDF2Conserjeria
+Where=/datos/.pdf2conserjeria
+Type=nfs
+Options=_netdev,auto
+
+[Install]
+WantedBy=multi-user.target

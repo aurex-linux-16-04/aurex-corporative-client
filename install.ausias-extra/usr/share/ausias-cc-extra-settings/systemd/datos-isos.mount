@@ -1,0 +1,12 @@
+[Unit]
+Description=isos
+After=network.target
+
+[Mount]
+What=lildevil.ausias.lan:/srv/workdata/isos
+Where=/datos/isos
+Type=nfs
+Options=_netdev,auto
+
+[Install]
+WantedBy=multi-user.target
