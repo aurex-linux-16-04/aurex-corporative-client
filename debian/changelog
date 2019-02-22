@@ -1,3 +1,11 @@
+aurex-corporative-client (0.129) xenial; urgency=medium
+
+  * ausias-cc-default-settings.link recovered
+  * .mount files now are copied (not linked) to /etc/systemd/system
+    to avoid "too many links" error in ubuntu 16.04
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 22 Feb 2019 18:47:38 +0100
+
 aurex-corporative-client (0.128) xenial; urgency=medium
 
   * Added systemd-mount-tool

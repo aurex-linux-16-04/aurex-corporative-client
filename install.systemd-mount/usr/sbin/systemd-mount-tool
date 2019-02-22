@@ -37,7 +37,8 @@ SFOLDER="$1"
 case "$ACTION" in
 	postinst)
 		for f in $(ls -1 $SFOLDER |grep "\.mount$") ; do
-			ln -sf "$SFOLDER/$f" /etc/systemd/system
+			rm -f "/etc/systemd/system/$f"
+			cp "$SFOLDER/$f" /etc/systemd/system/$f
 			systemctl daemon-reload || true
                 	systemctl enable $f || true
                 	systemctl start $f || true
