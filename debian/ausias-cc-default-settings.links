@@ -3,6 +3,7 @@
 /usr/share/ausias-cc-default-settings/apparmor-home	/etc/apparmor.d/tunables/home.d/ausias-cc
 /usr/share/ausias-cc-default-settings/systemd/datos-.pdf2conserjeria.mount	/etc/systemd/system/datos-.pdf2conserjeria.mount
 /usr/share/ausias-cc-default-settings/systemd/datos-.profesores.mount		/etc/systemd/system/datos-.profesores.mount
+/usr/share/ausias-cc-default-settings/systemd/datos-.pas.mount		/etc/systemd/system/datos-.pas.mount
 /usr/share/ausias-cc-default-settings/systemd/datos-.direccion.mount		/etc/systemd/system/datos-.direccion.mount
 /usr/share/ausias-cc-default-settings/systemd/datos-publico.mount		/etc/systemd/system/datos-publico.mount
 /usr/share/ausias-cc-default-settings/systemd/datos-departamentos.mount		/etc/systemd/system/datos-departamentos.mount
