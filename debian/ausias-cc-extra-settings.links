@@ -1,5 +1,0 @@
-/usr/share/ausias-cc-extra-settings/systemd/datos-mirror.mount		/etc/systemd/system/datos-mirror.mount
-/usr/share/ausias-cc-extra-settings/systemd/datos-ausiasbox.mount	/etc/systemd/system/datos-ausiasbox.mount
-/usr/share/ausias-cc-extra-settings/systemd/datos-netcache.mount	/etc/systemd/system/datos-netcache.mount
-/usr/share/ausias-cc-extra-settings/systemd/datos-isos.mount		/etc/systemd/system/datos-isos.mount
-/usr/share/ausias-cc-extra-settings/systemd/datos-msdn.mount		/etc/systemd/system/datos-msdn.mount 

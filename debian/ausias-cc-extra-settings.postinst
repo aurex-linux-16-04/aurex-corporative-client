@@ -3,11 +3,7 @@
 case "$1" in
     configure)
 	aurex-transmute --module=ausias-cc-extra transmute || true
-	systemctl daemon-reload || true
-        SFOLDER="/usr/share/ausias-cc-extra-settings/systemd"
-        for f in $(ls -1 $SFOLDER |grep "\.mount$") ; do
-                systemctl start $f || true
-        done
+	systemd-mount-tool postinst /usr/share/ausias-cc-extra-settings/systemd || true
 
 	;;
     abort-upgrade|abort-remove|abort-deconfigure)

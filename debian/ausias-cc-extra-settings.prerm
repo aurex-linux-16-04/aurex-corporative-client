@@ -18,11 +18,9 @@ set -e
 
 
 case "$1" in
-    upgrade)
-	# do nothing
-    ;;
-    remove|deconfigure)
+    upgrade|remove|deconfigure)
 	aurex-transmute --module=ausias-cc-extra untransmute || true
+	systemd-mount-tool prerm /usr/share/ausias-cc-extra-settings/systemd || true
     ;;
 
     failed-upgrade)

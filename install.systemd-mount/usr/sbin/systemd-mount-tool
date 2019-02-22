@@ -1,0 +1,59 @@
+#!/bin/sh
+# -------
+# File:        systemd-mount-tool
+# Description: simple tool to manage sytemd mount settings
+# Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along 
+# with this program; if not, write to the Free Software Foundation, Inc., 
+# 51 Franklin St, Fifth Floor, Boston MA 02110-1301 USA
+# --------
+
+die(){
+        echo "$1" >&2
+        exit 1
+}
+
+usage(){
+        die "Usage: $(basename "$0") {postint|prerm} DIRECTORY"
+}
+
+[ "$1" ] || usage
+ACTION="$1"
+shift
+SFOLDER="$1"
+[ "$SFOLDER" ] || [ ! -d "$SFOLDER" ] || usage
+
+case "$ACTION" in
+	postinst)
+		for f in $(ls -1 $SFOLDER |grep "\.mount$") ; do
+			ln -sf "$SFOLDER/$f" /etc/systemd/system
+			systemctl daemon-reload || true
+                	systemctl enable $f || true
+                	systemctl start $f || true
+        	done
+		;;
+	prerm)
+		for f in $(ls -1 $SFOLDER |grep "\.mount$") ; do
+                	systemctl disable $f || true
+			rm -f "/etc/systemd/system/$f"
+        	done
+		;;
+	*)
+		usage
+		;;
+esac
+
+exit 0
+
+

@@ -1,3 +1,9 @@
+aurex-corporative-client (0.128) xenial; urgency=medium
+
+  * Added systemd-mount-tool
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 22 Feb 2019 16:44:49 +0100
+
 aurex-corporative-client (0.127) xenial; urgency=medium
 
   * Added myssing symlink to datos-.pas.mount in systemd
