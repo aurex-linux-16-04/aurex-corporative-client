@@ -1,3 +1,9 @@
+aurex-corporative-client (0.130) xenial; urgency=medium
+
+  * Fixed a typo in ausias-cc-default-settings.links
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 08 Mar 2019 17:23:51 +0100
+
 aurex-corporative-client (0.129) xenial; urgency=medium
 
   * ausias-cc-default-settings.link recovered
